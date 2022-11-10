@@ -10,6 +10,17 @@
 		8C4DF6DA84986DBF36045AE1 /* Pods_EstacionamentoFacil_EstacionamentoFacilUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2EF0FB0B33FCD9F12FB730 /* Pods_EstacionamentoFacil_EstacionamentoFacilUITests.framework */; };
 		9C85038F5B6D44FD5ED46262 /* Pods_EstacionamentoFacilTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C349A528E930B6684E466CE6 /* Pods_EstacionamentoFacilTests.framework */; };
 		B3EAA605E2097451031300F7 /* Pods_EstacionamentoFacil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9227D9C0FD4E2B9E84D1E1D8 /* Pods_EstacionamentoFacil.framework */; };
+		C039D0AC291C038300CB11B9 /* ClientDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039D0AB291C038300CB11B9 /* ClientDetailsView.swift */; };
+		C039D0AE291C03A400CB11B9 /* ClientDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039D0AD291C03A400CB11B9 /* ClientDetailsViewController.swift */; };
+		C039D0B0291C03FB00CB11B9 /* ClientDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039D0AF291C03FB00CB11B9 /* ClientDetailsCoordinator.swift */; };
+		C039D0B5291C0B7100CB11B9 /* RegisterNewClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039D0B4291C0B7100CB11B9 /* RegisterNewClientView.swift */; };
+		C039D0B7291C0B7700CB11B9 /* RegisterNewClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039D0B6291C0B7700CB11B9 /* RegisterNewClientViewModel.swift */; };
+		C039D0B9291C0B7E00CB11B9 /* RegisterNewClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039D0B8291C0B7E00CB11B9 /* RegisterNewClientViewController.swift */; };
+		C039D0BB291C0B8500CB11B9 /* RegisterNewClientCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039D0BA291C0B8500CB11B9 /* RegisterNewClientCoordinator.swift */; };
+		C039D0BD291C0B8C00CB11B9 /* RegisterNewClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039D0BC291C0B8C00CB11B9 /* RegisterNewClientService.swift */; };
+		C039D0C4291C195600CB11B9 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039D0C3291C195600CB11B9 /* UIViewController+Ext.swift */; };
+		C039D0C6291C1A5C00CB11B9 /* EFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039D0C5291C1A5C00CB11B9 /* EFView.swift */; };
+		C039D0C8291C32CA00CB11B9 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C039D0C7291C32CA00CB11B9 /* UIButton+Ext.swift */; };
 		C07001FF2913248700B4DFE6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07001FE2913248700B4DFE6 /* HomeView.swift */; };
 		C07002012913249000B4DFE6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07002002913249000B4DFE6 /* HomeViewController.swift */; };
 		C07002032913249800B4DFE6 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07002022913249800B4DFE6 /* HomeCoordinator.swift */; };
@@ -27,7 +38,14 @@
 		C08672782919EA76001F5B42 /* EFLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08672772919EA76001F5B42 /* EFLabel.swift */; };
 		C086727A2919EAA1001F5B42 /* OccupyVacancyCardSectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08672792919EAA1001F5B42 /* OccupyVacancyCardSectionsView.swift */; };
 		C097077E29149B7500A3B27E /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C097077D29149B7500A3B27E /* HomeModel.swift */; };
+		C098D71B291C3E8E0085AABB /* ClientDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C098D71A291C3E8E0085AABB /* ClientDetailViewModel.swift */; };
+		C098D71E291C3F110085AABB /* ClientDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C098D71D291C3F110085AABB /* ClientDetailsService.swift */; };
+		C098D721291C3F620085AABB /* ParkingSpaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C098D720291C3F620085AABB /* ParkingSpaceModel.swift */; };
 		C0C07A26291B2492006374D9 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C07A25291B2492006374D9 /* Bindable.swift */; };
+		C0C07A29291B4AA1006374D9 /* ClientAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C07A28291B4AA1006374D9 /* ClientAPI.swift */; };
+		C0C07A2B291B5121006374D9 /* EFCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C07A2A291B5121006374D9 /* EFCardView.swift */; };
+		C0C07A2D291B51D3006374D9 /* EFErrorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C07A2C291B51D3006374D9 /* EFErrorTableViewCell.swift */; };
+		C0C07A2F291B51FD006374D9 /* EFErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C07A2E291B51FD006374D9 /* EFErrorView.swift */; };
 		C0CFFD242907552D000ADF3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFFD232907552D000ADF3A /* AppDelegate.swift */; };
 		C0CFFD262907552D000ADF3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFFD252907552D000ADF3A /* SceneDelegate.swift */; };
 		C0CFFD282907552D000ADF3A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFFD272907552D000ADF3A /* LoginViewController.swift */; };
@@ -56,6 +74,15 @@
 		C0CFFD7F2907636D000ADF3A /* TextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFFD7E2907636D000ADF3A /* TextField+Ext.swift */; };
 		C0CFFD812907644D000ADF3A /* EFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFFD802907644D000ADF3A /* EFButton.swift */; };
 		C0CFFD83290764DD000ADF3A /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFFD82290764DD000ADF3A /* String+Ext.swift */; };
+		C0F9FCD2291C8AE400E85F5E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0F9FCD1291C8AE400E85F5E /* GoogleService-Info.plist */; };
+		C0F9FCD4291C8E6300E85F5E /* Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F9FCD3291C8E6300E85F5E /* Current.swift */; };
+		C0F9FCD8291C91AD00E85F5E /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F9FCD7291C91AD00E85F5E /* CreateAccountView.swift */; };
+		C0F9FCDA291C927800E85F5E /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F9FCD9291C927800E85F5E /* CreateAccountViewController.swift */; };
+		C0F9FCDC291C92DC00E85F5E /* Weakify.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F9FCDB291C92DC00E85F5E /* Weakify.swift */; };
+		C0F9FCDE291C931B00E85F5E /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F9FCDD291C931B00E85F5E /* CreateAccountViewModel.swift */; };
+		C0F9FCE0291C93AC00E85F5E /* CreateAccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F9FCDF291C93AC00E85F5E /* CreateAccountCoordinator.swift */; };
+		C0F9FCE2291C99E400E85F5E /* InitialParkingSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F9FCE1291C99E400E85F5E /* InitialParkingSpace.swift */; };
+		C0F9FCE4291CAF1C00E85F5E /* OccupyVacancyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F9FCE3291CAF1C00E85F5E /* OccupyVacancyViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +111,17 @@
 		9227D9C0FD4E2B9E84D1E1D8 /* Pods_EstacionamentoFacil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EstacionamentoFacil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D2EF0FB0B33FCD9F12FB730 /* Pods_EstacionamentoFacil_EstacionamentoFacilUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EstacionamentoFacil_EstacionamentoFacilUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB8250CDF2080AF8305834D3 /* Pods-EstacionamentoFacil-EstacionamentoFacilUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EstacionamentoFacil-EstacionamentoFacilUITests.release.xcconfig"; path = "Target Support Files/Pods-EstacionamentoFacil-EstacionamentoFacilUITests/Pods-EstacionamentoFacil-EstacionamentoFacilUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C039D0AB291C038300CB11B9 /* ClientDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsView.swift; sourceTree = "<group>"; };
+		C039D0AD291C03A400CB11B9 /* ClientDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsViewController.swift; sourceTree = "<group>"; };
+		C039D0AF291C03FB00CB11B9 /* ClientDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsCoordinator.swift; sourceTree = "<group>"; };
+		C039D0B4291C0B7100CB11B9 /* RegisterNewClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewClientView.swift; sourceTree = "<group>"; };
+		C039D0B6291C0B7700CB11B9 /* RegisterNewClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewClientViewModel.swift; sourceTree = "<group>"; };
+		C039D0B8291C0B7E00CB11B9 /* RegisterNewClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewClientViewController.swift; sourceTree = "<group>"; };
+		C039D0BA291C0B8500CB11B9 /* RegisterNewClientCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewClientCoordinator.swift; sourceTree = "<group>"; };
+		C039D0BC291C0B8C00CB11B9 /* RegisterNewClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewClientService.swift; sourceTree = "<group>"; };
+		C039D0C3291C195600CB11B9 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		C039D0C5291C1A5C00CB11B9 /* EFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFView.swift; sourceTree = "<group>"; };
+		C039D0C7291C32CA00CB11B9 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		C07001FE2913248700B4DFE6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C07002002913249000B4DFE6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C07002022913249800B4DFE6 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
@@ -101,7 +139,14 @@
 		C08672772919EA76001F5B42 /* EFLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFLabel.swift; sourceTree = "<group>"; };
 		C08672792919EAA1001F5B42 /* OccupyVacancyCardSectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccupyVacancyCardSectionsView.swift; sourceTree = "<group>"; };
 		C097077D29149B7500A3B27E /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		C098D71A291C3E8E0085AABB /* ClientDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailViewModel.swift; sourceTree = "<group>"; };
+		C098D71D291C3F110085AABB /* ClientDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsService.swift; sourceTree = "<group>"; };
+		C098D720291C3F620085AABB /* ParkingSpaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpaceModel.swift; sourceTree = "<group>"; };
 		C0C07A25291B2492006374D9 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		C0C07A28291B4AA1006374D9 /* ClientAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientAPI.swift; sourceTree = "<group>"; };
+		C0C07A2A291B5121006374D9 /* EFCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFCardView.swift; sourceTree = "<group>"; };
+		C0C07A2C291B51D3006374D9 /* EFErrorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFErrorTableViewCell.swift; sourceTree = "<group>"; };
+		C0C07A2E291B51FD006374D9 /* EFErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFErrorView.swift; sourceTree = "<group>"; };
 		C0CFFD202907552D000ADF3A /* EstacionamentoFacil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EstacionamentoFacil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CFFD232907552D000ADF3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0CFFD252907552D000ADF3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +179,15 @@
 		C0CFFD7E2907636D000ADF3A /* TextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Ext.swift"; sourceTree = "<group>"; };
 		C0CFFD802907644D000ADF3A /* EFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFButton.swift; sourceTree = "<group>"; };
 		C0CFFD82290764DD000ADF3A /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		C0F9FCD1291C8AE400E85F5E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C0F9FCD3291C8E6300E85F5E /* Current.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Current.swift; sourceTree = "<group>"; };
+		C0F9FCD7291C91AD00E85F5E /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		C0F9FCD9291C927800E85F5E /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		C0F9FCDB291C92DC00E85F5E /* Weakify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weakify.swift; sourceTree = "<group>"; };
+		C0F9FCDD291C931B00E85F5E /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
+		C0F9FCDF291C93AC00E85F5E /* CreateAccountCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountCoordinator.swift; sourceTree = "<group>"; };
+		C0F9FCE1291C99E400E85F5E /* InitialParkingSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialParkingSpace.swift; sourceTree = "<group>"; };
+		C0F9FCE3291CAF1C00E85F5E /* OccupyVacancyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccupyVacancyViewCell.swift; sourceTree = "<group>"; };
 		C349A528E930B6684E466CE6 /* Pods_EstacionamentoFacilTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EstacionamentoFacilTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -188,10 +242,93 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C039D0AA291C037400CB11B9 /* ClientDetails */ = {
+			isa = PBXGroup;
+			children = (
+				C098D71F291C3F550085AABB /* Model */,
+				C098D71C291C3F050085AABB /* Service */,
+				C098D719291C3E550085AABB /* ViewModel */,
+				C039D0B1291C042600CB11B9 /* View */,
+				C039D0B2291C042D00CB11B9 /* Coordinator */,
+			);
+			path = ClientDetails;
+			sourceTree = "<group>";
+		};
+		C039D0B1291C042600CB11B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C039D0AB291C038300CB11B9 /* ClientDetailsView.swift */,
+				C039D0AD291C03A400CB11B9 /* ClientDetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C039D0B2291C042D00CB11B9 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				C039D0AF291C03FB00CB11B9 /* ClientDetailsCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		C039D0B3291C0B5D00CB11B9 /* RegisterNewClient */ = {
+			isa = PBXGroup;
+			children = (
+				C039D0BE291C0B9500CB11B9 /* Model */,
+				C039D0BF291C0B9D00CB11B9 /* View */,
+				C039D0C0291C0BA200CB11B9 /* ViewModel */,
+				C039D0C1291C0BA700CB11B9 /* Coordinator */,
+				C039D0C2291C0BAC00CB11B9 /* Service */,
+			);
+			path = RegisterNewClient;
+			sourceTree = "<group>";
+		};
+		C039D0BE291C0B9500CB11B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C039D0BF291C0B9D00CB11B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C039D0B8291C0B7E00CB11B9 /* RegisterNewClientViewController.swift */,
+				C039D0B4291C0B7100CB11B9 /* RegisterNewClientView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C039D0C0291C0BA200CB11B9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C039D0B6291C0B7700CB11B9 /* RegisterNewClientViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C039D0C1291C0BA700CB11B9 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				C039D0BA291C0B8500CB11B9 /* RegisterNewClientCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		C039D0C2291C0BAC00CB11B9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C039D0BC291C0B8C00CB11B9 /* RegisterNewClientService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		C070020C29133AB100B4DFE6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				C070020D29133ABB00B4DFE6 /* UIView+Ext.swift */,
+				C039D0C3291C195600CB11B9 /* UIViewController+Ext.swift */,
+				C039D0C7291C32CA00CB11B9 /* UIButton+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -208,6 +345,30 @@
 			path = OccupyVacancy;
 			sourceTree = "<group>";
 		};
+		C098D719291C3E550085AABB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C098D71A291C3E8E0085AABB /* ClientDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C098D71C291C3F050085AABB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C098D71D291C3F110085AABB /* ClientDetailsService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C098D71F291C3F550085AABB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C098D720291C3F620085AABB /* ParkingSpaceModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C0C07A20291B23C5006374D9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +383,7 @@
 				C08672792919EAA1001F5B42 /* OccupyVacancyCardSectionsView.swift */,
 				C086726B2919DA9A001F5B42 /* OccupyVacancyViewController.swift */,
 				C086726D2919DAA1001F5B42 /* OccupyVacancyView.swift */,
+				C0F9FCE3291CAF1C00E85F5E /* OccupyVacancyViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -250,6 +412,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		C0C07A27291B4A90006374D9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C0C07A28291B4AA1006374D9 /* ClientAPI.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		C0CFFD172907552D000ADF3A = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +445,7 @@
 		C0CFFD222907552D000ADF3A /* EstacionamentoFacil */ = {
 			isa = PBXGroup;
 			children = (
+				C0F9FCD1291C8AE400E85F5E /* GoogleService-Info.plist */,
 				C0CFFD312907552D000ADF3A /* Info.plist */,
 				C0CFFD7029075F4B000ADF3A /* Resources */,
 				C0CFFD7129075F51000ADF3A /* Sources */,
@@ -323,6 +494,7 @@
 				C0CFFD7C2907630D000ADF3A /* CascadeOperator.swift */,
 				C0CFFD7E2907636D000ADF3A /* TextField+Ext.swift */,
 				C0C07A25291B2492006374D9 /* Bindable.swift */,
+				C0F9FCDB291C92DC00E85F5E /* Weakify.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -355,9 +527,14 @@
 		C0CFFD7129075F51000ADF3A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C0F9FCD6291C919800E85F5E /* CreateAccount */,
+				C039D0B3291C0B5D00CB11B9 /* RegisterNewClient */,
+				C039D0AA291C037400CB11B9 /* ClientDetails */,
+				C0C07A27291B4A90006374D9 /* Network */,
 				C086726A2919DA82001F5B42 /* OccupyVacancy */,
 				C0CFFD732907605D000ADF3A /* Home */,
 				C0CFFD7229076059000ADF3A /* Login */,
+				C0F9FCD3291C8E6300E85F5E /* Current.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -394,8 +571,24 @@
 				C0CFFD802907644D000ADF3A /* EFButton.swift */,
 				C0CFFD82290764DD000ADF3A /* String+Ext.swift */,
 				C08672772919EA76001F5B42 /* EFLabel.swift */,
+				C0C07A2A291B5121006374D9 /* EFCardView.swift */,
+				C0C07A2C291B51D3006374D9 /* EFErrorTableViewCell.swift */,
+				C0C07A2E291B51FD006374D9 /* EFErrorView.swift */,
+				C039D0C5291C1A5C00CB11B9 /* EFView.swift */,
 			);
 			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		C0F9FCD6291C919800E85F5E /* CreateAccount */ = {
+			isa = PBXGroup;
+			children = (
+				C0F9FCD7291C91AD00E85F5E /* CreateAccountView.swift */,
+				C0F9FCD9291C927800E85F5E /* CreateAccountViewController.swift */,
+				C0F9FCDD291C931B00E85F5E /* CreateAccountViewModel.swift */,
+				C0F9FCDF291C93AC00E85F5E /* CreateAccountCoordinator.swift */,
+				C0F9FCE1291C99E400E85F5E /* InitialParkingSpace.swift */,
+			);
+			path = CreateAccount;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,6 +701,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0CFFD302907552D000ADF3A /* LaunchScreen.storyboard in Resources */,
+				C0F9FCD2291C8AE400E85F5E /* GoogleService-Info.plist in Resources */,
 				C0CFFD2D2907552D000ADF3A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -638,16 +832,26 @@
 			files = (
 				C07002012913249000B4DFE6 /* HomeViewController.swift in Sources */,
 				C086726E2919DAA1001F5B42 /* OccupyVacancyView.swift in Sources */,
+				C039D0B0291C03FB00CB11B9 /* ClientDetailsCoordinator.swift in Sources */,
 				C0CFFD6F29075F2D000ADF3A /* Coordinator.swift in Sources */,
 				C0700209291326FB00B4DFE6 /* LoginService.swift in Sources */,
+				C039D0B5291C0B7100CB11B9 /* RegisterNewClientView.swift in Sources */,
+				C039D0AC291C038300CB11B9 /* ClientDetailsView.swift in Sources */,
 				C0CFFD282907552D000ADF3A /* LoginViewController.swift in Sources */,
 				C0C07A26291B2492006374D9 /* Bindable.swift in Sources */,
 				C097077E29149B7500A3B27E /* HomeModel.swift in Sources */,
+				C0F9FCDA291C927800E85F5E /* CreateAccountViewController.swift in Sources */,
 				C086727A2919EAA1001F5B42 /* OccupyVacancyCardSectionsView.swift in Sources */,
 				C0CFFD5D29075EB8000ADF3A /* ViewCodeContract.swift in Sources */,
+				C0C07A29291B4AA1006374D9 /* ClientAPI.swift in Sources */,
 				C0CFFD6529075EB8000ADF3A /* UIView+AxisAttribute.swift in Sources */,
+				C0C07A2B291B5121006374D9 /* EFCardView.swift in Sources */,
+				C0F9FCE0291C93AC00E85F5E /* CreateAccountCoordinator.swift in Sources */,
 				C0CFFD6D29075F2D000ADF3A /* CoordinatedViewController.swift in Sources */,
 				C08672722919DAB6001F5B42 /* OccupyVacancyViewModel.swift in Sources */,
+				C039D0B9291C0B7E00CB11B9 /* RegisterNewClientViewController.swift in Sources */,
+				C0F9FCE4291CAF1C00E85F5E /* OccupyVacancyViewCell.swift in Sources */,
+				C098D71B291C3E8E0085AABB /* ClientDetailViewModel.swift in Sources */,
 				C0CFFD6229075EB8000ADF3A /* Padding.swift in Sources */,
 				C070020B2913271A00B4DFE6 /* LoginViewModel.swift in Sources */,
 				C0CFFD5E29075EB8000ADF3A /* UIView+SafeAreaAnchors.swift in Sources */,
@@ -655,28 +859,44 @@
 				C0CFFD83290764DD000ADF3A /* String+Ext.swift in Sources */,
 				C0CFFD6029075EB8000ADF3A /* AutoLayoutOption.swift in Sources */,
 				C0700205291325FC00B4DFE6 /* HomeViewModel.swift in Sources */,
+				C0F9FCE2291C99E400E85F5E /* InitialParkingSpace.swift in Sources */,
 				C070020E29133ABB00B4DFE6 /* UIView+Ext.swift in Sources */,
+				C039D0C4291C195600CB11B9 /* UIViewController+Ext.swift in Sources */,
+				C039D0AE291C03A400CB11B9 /* ClientDetailsViewController.swift in Sources */,
 				C0CFFD6C29075F2D000ADF3A /* CoordinatorConfiguration.swift in Sources */,
 				C0CFFD242907552D000ADF3A /* AppDelegate.swift in Sources */,
+				C098D71E291C3F110085AABB /* ClientDetailsService.swift in Sources */,
 				C0CFFD76290760C2000ADF3A /* LoginView.swift in Sources */,
 				C0700207291326B900B4DFE6 /* HomeService.swift in Sources */,
 				C0CFFD6429075EB8000ADF3A /* ActionTypealias.swift in Sources */,
+				C0F9FCDE291C931B00E85F5E /* CreateAccountViewModel.swift in Sources */,
 				C08672742919DABD001F5B42 /* ClientModel.swift in Sources */,
 				C0CFFD7F2907636D000ADF3A /* TextField+Ext.swift in Sources */,
 				C0CFFD7B29076283000ADF3A /* EFTextField.swift in Sources */,
 				C08672702919DAAA001F5B42 /* OccupyVacancyCoordinator.swift in Sources */,
 				C0CFFD6E29075F2D000ADF3A /* BaseCoordinator.swift in Sources */,
 				C0CFFD782907612F000ADF3A /* LoginCoordinator.swift in Sources */,
+				C098D721291C3F620085AABB /* ParkingSpaceModel.swift in Sources */,
+				C0C07A2D291B51D3006374D9 /* EFErrorTableViewCell.swift in Sources */,
+				C039D0B7291C0B7700CB11B9 /* RegisterNewClientViewModel.swift in Sources */,
 				C0CFFD262907552D000ADF3A /* SceneDelegate.swift in Sources */,
 				C0CFFD7D2907630D000ADF3A /* CascadeOperator.swift in Sources */,
 				C0CFFD812907644D000ADF3A /* EFButton.swift in Sources */,
+				C0F9FCDC291C92DC00E85F5E /* Weakify.swift in Sources */,
 				C07002032913249800B4DFE6 /* HomeCoordinator.swift in Sources */,
 				C0CFFD5F29075EB8000ADF3A /* NSLayoutDimension+Extension.swift in Sources */,
+				C039D0BD291C0B8C00CB11B9 /* RegisterNewClientService.swift in Sources */,
 				C086726C2919DA9A001F5B42 /* OccupyVacancyViewController.swift in Sources */,
+				C0F9FCD4291C8E6300E85F5E /* Current.swift in Sources */,
+				C039D0C6291C1A5C00CB11B9 /* EFView.swift in Sources */,
+				C039D0BB291C0B8500CB11B9 /* RegisterNewClientCoordinator.swift in Sources */,
 				C07001FF2913248700B4DFE6 /* HomeView.swift in Sources */,
+				C039D0C8291C32CA00CB11B9 /* UIButton+Ext.swift in Sources */,
 				C0CFFD6329075EB8000ADF3A /* UIView+RawAnchors.swift in Sources */,
 				C08672762919DC24001F5B42 /* OccupyVacancyService.swift in Sources */,
+				C0F9FCD8291C91AD00E85F5E /* CreateAccountView.swift in Sources */,
 				C0CFFD6129075EB8000ADF3A /* UIView+LayoutGuides.swift in Sources */,
+				C0C07A2F291B51FD006374D9 /* EFErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

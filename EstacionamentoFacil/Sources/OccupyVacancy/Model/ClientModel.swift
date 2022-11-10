@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct ClientModel: Decodable {
+struct ClientModel: Codable {
     let emailFirebase: String
+    let clientName: String
     let cpfClient: String
     let plate: String
     let model: String

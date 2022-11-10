@@ -6,19 +6,19 @@
 //
 
 import Foundation
-//import FirebaseAuth
+import FirebaseAuth
 
 protocol OccupyVacancyServiceProtocol {
     func getClientsList(completion: @escaping ([ClientModel]) -> Void)
 }
 
 class OccupyVacancyService: OccupyVacancyServiceProtocol {
-
+    private let baseUrl = ClientAPI.endpoint
+    
     // Get procedure list
     func getClientsList(completion: @escaping ([ClientModel]) -> Void) {
-//        guard let email = Auth.auth().currentUser?.email else { return }
-        // let urlString = "http://localhost:3000/clients/\(email)"
-        let urlString = "http://localhost:3000/clients/leojportes@gmail.com"
+        let email = Current.shared.email
+        let urlString = "\(baseUrl)/clients/\(email)"
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else { return }

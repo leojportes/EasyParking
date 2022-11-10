@@ -9,15 +9,21 @@ import UIKit
 
 final class OccupyVacancyView: UIView, ViewCodeContract {
     
-    private var didTapOccupyVacancyButton: Action?
-    private var didTapCancelButton: Action?
+    private var didTapRegisterClientButton: Action?
+    private var didTapClient: (ClientModel) -> Void?
+
+    var clientItems: [ClientModel] = [] {
+        didSet {
+            tableview.reloadData()
+        }
+    }
 
     init(
-        didTapOccupyVacancyButton: @escaping Action,
-        didTapCancelButton: @escaping Action
+        didTapRegisterClientButton: @escaping Action,
+        didTapClient: @escaping (ClientModel) -> Void?
     ) {
-        self.didTapOccupyVacancyButton = didTapOccupyVacancyButton
-        self.didTapCancelButton = didTapCancelButton
+        self.didTapRegisterClientButton = didTapRegisterClientButton
+        self.didTapClient = didTapClient
         super.init(frame: .zero)
         setupView()
         backgroundColor = .white
@@ -26,85 +32,101 @@ final class OccupyVacancyView: UIView, ViewCodeContract {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    private lazy var cardView = OccupyVacancyCardSectionsView(
-        clientName: "Leonardo Portes",
-        cpfClient: "08547733382",
-        licensePlate: "QAG3304",
-        model: "Ford Ka",
-        color: "Vermelho"
-    )
-
-    private lazy var occupyVacancyButton = EFButton(
-        title: "Ocupar vaga",
+    
+    private lazy var registerButton = EFButton(
+        title: "Cadastrar novo cliente",
         colorTitle: .black,
         background: .systemGreen,
         alignmentText: .center,
         fontSize: 15,
-        action: { self.didTapOccupyVacancyButton?() }
-    )
+        action: { self.didTapRegisterClientButton?() }
+    ) .. {
+        $0.isHidden = false
+    }
 
-    private lazy var cancelButton = EFButton(
-        title: "Cancelar",
-        colorTitle: .white,
-        background: .systemRed,
-        alignmentText: .center,
-        fontSize: 15,
-        action: {
-            self.didTapCancelButton?()
-        }
-    )
+    private lazy var baseButtonView = UIView() .. {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.isHidden = false
+    }
 
+    lazy var tableview: UITableView = {
+        let table = UITableView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.register(OccupyVacancyViewCell.self, forCellReuseIdentifier: OccupyVacancyViewCell.identifier)
+        table.register(EFErrorTableViewCell.self, forCellReuseIdentifier: EFErrorTableViewCell.identifier)
+//        table.refreshControl = UIRefreshControl()
+//        table.refreshControl?.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        table.separatorStyle = .none
+        table.backgroundColor = .white
+        table.delegate = self
+        table.dataSource = self
+        return table
+    }()
 
     func setupHierarchy() {
-        addSubview(cardView)
-        addSubview(occupyVacancyButton)
-        addSubview(cancelButton)
+        addSubview(tableview)
+        addSubview(baseButtonView)
+        baseButtonView.addSubview(registerButton)
     }
     
     func setupConstraints() {
-        cardView
-            .topAnchor(in: self, padding: 60)
-            .rightAnchor(in: self, padding: 10)
-            .leftAnchor(in: self, padding: 10)
-            
-        occupyVacancyButton
-            .bottomAnchor(in: self, padding: 40)
-            .leftAnchor(in: self, padding: 20)
-            .rightAnchor(in: cancelButton, attribute: .left, padding: 15)
+        tableview
+            .topAnchor(in: self, padding: 10)
+            .leftAnchor(in: self)
+            .rightAnchor(in: self)
+            .bottomAnchor(in: self, layoutOption: .useMargins)
+        
+        baseButtonView
+            .bottomAnchor(in: self, layoutOption: .useMargins)
+            .leftAnchor(in: self)
+            .rightAnchor(in: self)
+            .heightAnchor(100)
+        registerButton
+            .topAnchor(in: baseButtonView, padding: 20)
+            .leftAnchor(in: baseButtonView, padding: 20)
+            .rightAnchor(in: baseButtonView, padding: 20)
             .heightAnchor(50)
-
-        cancelButton
-            .bottomAnchor(in: self, padding: 40)
-            .rightAnchor(in: self, padding: 20)
-            .heightAnchor(50)
-            .widthAnchor(150)
     }
     
 }
 
-class CardView: UIView {
-    
-    init(
-        shadowColor: CGColor = UIColor.black.cgColor,
-        shadowOpacity: Float = 0.3,
-        shadowOffset: CGSize = CGSize(width: 0.0, height: 1),
-        shadowRadius: CGFloat = 2,
-        cornerRadius: CGFloat = 10,
-        backgroundColor: UIColor = .lightGray
-    ) {
-        super.init(frame: .zero)
-        self.layer.shadowColor = shadowColor
-        self.layer.shadowOpacity = shadowOpacity
-        self.layer.shadowOffset = shadowOffset
-        self.layer.shadowRadius = shadowRadius
-        self.layer.cornerRadius = cornerRadius
-        self.backgroundColor = backgroundColor
-        self.translatesAutoresizingMaskIntoConstraints = false
+extension OccupyVacancyView: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if clientItems.isEmpty { return 1 }
+        return clientItems.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if clientItems.isEmpty {
+            let cellEmpty = tableview
+                .dequeueReusableCell(withIdentifier: EFErrorTableViewCell.identifier, for: indexPath) as? EFErrorTableViewCell
+
+            cellEmpty?.isUserInteractionEnabled = false
+            
+            return cellEmpty ?? UITableViewCell()
+        } else {
+            let cell = tableview
+                .dequeueReusableCell(withIdentifier: OccupyVacancyViewCell.identifier, for: indexPath) as? OccupyVacancyViewCell
+            
+            let client = clientItems[indexPath.row]
+            cell?.setupCustomCell(plate: client.plate, clientName: client.clientName, model: client.model, color: client.color)
+
+            return cell ?? UITableViewCell()
+        }
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if clientItems.isEmpty == false {
+            let client = clientItems[indexPath.row]
+            didTapClient(client)
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 
 }

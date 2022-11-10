@@ -12,17 +12,17 @@ protocol HomeViewModelProtocol: AnyObject {
     var output: HomeViewModelOutputProtocol { get }
   
     // Routes
-    func didTapParkingSpace(_ buttonId: ButtonID)
+    func didTapParkingSpace(_ buttonId: ButtonID, idParkingSpace: String)
+    func occupyParkingSpace(parkingSpace: ParkingSpace, id: String, completion: @escaping (Bool) -> Void)
 }
 
 // MARK: - Protocols
 protocol HomeViewModelOutputProtocol {
-    
+    var parkingSpaces: Bindable<[ParkingSpace]> { get }
 }
 
 protocol HomeViewModelInputProtocol {
     func viewDidLoad()
-//    func makeTotalAmounts(_ procedures: [GetProcedureModel]) -> String
 }
 
 class HomeViewModel: HomeViewModelProtocol, HomeViewModelOutputProtocol {
@@ -31,7 +31,7 @@ class HomeViewModel: HomeViewModelProtocol, HomeViewModelOutputProtocol {
 
     var input: HomeViewModelInputProtocol { self }
     var output: HomeViewModelOutputProtocol { self }
-//    var procedures: Bindable<[GetProcedureModel]> = .init([])
+    var parkingSpaces: Bindable<[ParkingSpace]> = .init([])
 
     // MARK: - Properties
     private var coordinator: HomeCoordinator?
@@ -42,25 +42,27 @@ class HomeViewModel: HomeViewModelProtocol, HomeViewModelOutputProtocol {
         self.service = service
     }
 
-//    private func fetchProcedureItems() {
-//        service.getProcedureList { result in
-//            DispatchQueue.main.async {
-//                self.procedures.value = result
-//            }
-//        }
-//    }
+    private func fetchParkingSpaces() {
+        service.getParkingSpaces { result in
+            DispatchQueue.main.async {
+                self.parkingSpaces.value = result
+            }
+        }
+    }
+    
+    func occupyParkingSpace(parkingSpace: ParkingSpace, id: String, completion: @escaping (Bool) -> Void) {
+        service.occupyParkingSpace(parkingSpace: parkingSpace, id: id, completion: completion)
+    }
   
     // MARK: - Routes
-    func didTapParkingSpace(_ buttonId: ButtonID) {
-        print("Número do botão: ", buttonId.rawValue)
-        coordinator?.navigateToVehiclesList(buttonId)
+    func didTapParkingSpace(_ buttonId: ButtonID, idParkingSpace: String) {
+        coordinator?.navigateToVehiclesList(buttonId, idParkingSpace: idParkingSpace)
     }
 
 }
 
 extension HomeViewModel: HomeViewModelInputProtocol {
     func viewDidLoad() {
-        
+        fetchParkingSpaces()
     }
 }
-

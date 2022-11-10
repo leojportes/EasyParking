@@ -19,4 +19,9 @@ final class LoginCoordinator: BaseCoordinator {
         let coordinator = HomeCoordinator(with: configuration)
         coordinator.start()
     }
+    
+    func navigateToCreateAccount() {
+        let coordinator = CreateAccountCoordinator(with: configuration)
+        coordinator.start()
+    }
 }

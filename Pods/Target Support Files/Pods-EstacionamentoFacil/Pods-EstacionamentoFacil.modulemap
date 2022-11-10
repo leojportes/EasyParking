@@ -1,0 +1,6 @@
+framework module Pods_EstacionamentoFacil {
+  umbrella header "Pods-EstacionamentoFacil-umbrella.h"
+
+  export *
+  module * { export * }
+}

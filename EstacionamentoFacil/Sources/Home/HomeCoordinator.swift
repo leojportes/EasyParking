@@ -15,9 +15,12 @@ final class HomeCoordinator: BaseCoordinator {
         configuration.navigationController?.pushViewController(controller, animated: true)
     }
 
-    func navigateToVehiclesList(_ buttonId: ButtonID) {
+    func navigateToVehiclesList(_ buttonId: ButtonID, idParkingSpace: String) {
         let coordinator = OccupyVacancyCoordinator(with: configuration)
-        coordinator.start()
+        coordinator.start(
+            idParkingSpace: idParkingSpace,
+            indexParkingSpace: buttonId.rawValue.description
+        )
     }
 
 }

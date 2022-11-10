@@ -11,7 +11,8 @@ protocol OccupyVacancyViewModelProtocol: AnyObject {
     var input: OccupyVacancyViewModelInputProtocol { get }
     var output: OccupyVacancyViewModelOutputProtocol { get }
   
-    func didTapParkingSpace()
+    func didTapClientToOccupyVacancy(_ clientModel: ClientDetailModel)
+    func navigateToRegisterNewClient()
     func dismiss()
 }
 
@@ -22,7 +23,6 @@ protocol OccupyVacancyViewModelOutputProtocol {
 
 protocol OccupyVacancyViewModelInputProtocol {
     func viewDidLoad()
-//    func makeTotalAmounts(_ procedures: [GetProcedureModel]) -> String
 }
 
 class OccupyVacancyViewModel: OccupyVacancyViewModelProtocol, OccupyVacancyViewModelOutputProtocol {
@@ -42,7 +42,8 @@ class OccupyVacancyViewModel: OccupyVacancyViewModelProtocol, OccupyVacancyViewM
         self.service = service
     }
 
-    private func fetchAllClients() {
+    /// Fetch all clients
+    private func fetchClients() {
         service.getClientsList { result in
             DispatchQueue.main.async {
                 self.clients.value = result
@@ -50,8 +51,13 @@ class OccupyVacancyViewModel: OccupyVacancyViewModelProtocol, OccupyVacancyViewM
         }
     }
   
-    func didTapParkingSpace() {
-        
+    // MARK: - Routes
+    func didTapClientToOccupyVacancy(_ clientModel: ClientDetailModel) {
+        coordinator?.navigateToClientDetails(clientModel)
+    }
+
+    func navigateToRegisterNewClient() {
+        coordinator?.navigateToRegisterNewClient()
     }
 
     func dismiss() {
@@ -61,7 +67,7 @@ class OccupyVacancyViewModel: OccupyVacancyViewModelProtocol, OccupyVacancyViewM
 
 extension OccupyVacancyViewModel: OccupyVacancyViewModelInputProtocol {
     func viewDidLoad() {
-        fetchAllClients()
+        fetchClients()
     }
 }
 

@@ -10,25 +10,11 @@ import UIKit
 final class OccupyVacancyCardSectionsView: CardView, ViewCodeContract {
 
     // MARK: - Private methods
-    private let clientName: String
-    private let cpfClient: String
-    private let licensePlate: String
-    private let model: String
-    private let color: String
+    private let client: ClientModel
 
     // MARK: - Init
-    init(
-        clientName: String,
-        cpfClient: String,
-        licensePlate: String,
-        model: String,
-        color: String
-    ) {
-        self.clientName = clientName
-        self.cpfClient = cpfClient
-        self.licensePlate = licensePlate
-        self.model = model
-        self.color = color
+    init(client: ClientModel) {
+        self.client = client
         super.init()
         setupView()
         backgroundColor = .white
@@ -40,35 +26,35 @@ final class OccupyVacancyCardSectionsView: CardView, ViewCodeContract {
 
     private lazy var clientNameLabel = EFLabel("Cliente:")
     private lazy var clientNameValueLabel = EFLabel(
-        clientName,
+        client.clientName,
         font: .boldSystemFont(ofSize: 15),
         alignment: .right
     )
 
     private lazy var cpfClientLabel = EFLabel("CPF:")
     private lazy var cpfClientValueLabel = EFLabel(
-        cpfClient,
+        client.cpfClient,
         font: .boldSystemFont(ofSize: 15),
         alignment: .right
     )
 
     private lazy var licensePlateLabel = EFLabel("Placa:")
     private lazy var licensePlateValueLabel = EFLabel(
-        licensePlate,
+        client.plate,
         font: .boldSystemFont(ofSize: 15),
         alignment: .right
     )
 
     private lazy var modelLabel = EFLabel("Modelo:")
     private lazy var modelValueLabel = EFLabel(
-        model,
+        client.model,
         font: .boldSystemFont(ofSize: 15),
         alignment: .right
     )
 
     private lazy var colorLabel = EFLabel("Cor:")
     private lazy var colorValueLabel = EFLabel(
-        color,
+        client.color,
         font: .boldSystemFont(ofSize: 15),
         alignment: .right
     )

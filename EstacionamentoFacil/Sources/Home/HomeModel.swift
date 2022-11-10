@@ -18,9 +18,3 @@ public enum ButtonID: Int {
     case eighthBtn = 8
     case ninthBtn = 9
 }
-
-public enum ParkingSpaceStatus {
-    case free
-    case busy
-    case inMaintenance
-}

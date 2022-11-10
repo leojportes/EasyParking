@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: CoordinatedViewController {
     
@@ -13,7 +14,8 @@ class LoginViewController: CoordinatedViewController {
     private let viewModel: LoginViewModelProtocol
 
     private lazy var rootView = LoginView(
-        didTapLogin: { self.viewModel.navigateToHome() }
+        didTapLogin: weakify { $0.didTapLogin($1, $2) },
+        didTapCreateAccount: weakify { $0.viewModel.navigateToCreateAccount() }
     )
 
     // MARK: - Init
@@ -29,6 +31,29 @@ class LoginViewController: CoordinatedViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = rootView
+        hideKeyboardWhenTappedAround()
     }
 
+    func didTapLogin(_ email: String, _ password: String) {
+        rootView.loginButton.loadingIndicator(show: true)
+        viewModel.authLogin(email, password) { [weak self] onSuccess, descriptionError in
+            onSuccess
+            ? DispatchQueue.main.async { self?.viewModel.navigateToHome() }
+            : DispatchQueue.main.async { self?.showError(descriptionError) }
+        }
+    }
+    
+    private func showError( _ descriptionError: String) {
+        self.showAlert(title: "Atenção", message: descriptionError)
+        self.rootView.loginButton.loadingIndicator(show: false)
+    }
+//
+//    func didTapForgotPassword() {
+//        viewModel.navigateToForgotPassword(email: self.email)
+//    }
+//
+//    func didTapRegister() {
+//        viewModel.navigateToRegister()
+//    }
+//
 }

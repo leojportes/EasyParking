@@ -9,10 +9,15 @@ import UIKit
 
 final class LoginView: UIView, ViewCodeContract {
     
-    private let didTapLogin: Action?
+    private let didTapLogin: (String, String) -> Void?
+    private let didTapCreateAccount: Action?
 
-    init(didTapLogin: @escaping Action) {
+    init(
+        didTapLogin: @escaping (String, String) -> Void,
+        didTapCreateAccount: @escaping Action
+    ) {
         self.didTapLogin = didTapLogin
+        self.didTapCreateAccount = didTapCreateAccount
         super.init(frame: .zero)
         setupView()
         backgroundColor = .white
@@ -84,7 +89,7 @@ final class LoginView: UIView, ViewCodeContract {
 
     @objc
     func createAccountAction() {
-        print("create account")
+        didTapCreateAccount?()
     }
 
     // MARK: - Setup methods
@@ -148,7 +153,9 @@ final class LoginView: UIView, ViewCodeContract {
 
     @objc
     private func handleLoginButton() {
-        didTapLogin?()
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        didTapLogin(email, password)
 //        loginButton.loadingIndicator(show: true)
 //        delegateAction?.didTapLogin(emailTextField.text.orEmpty, passwordTextField.text.orEmpty)
     }

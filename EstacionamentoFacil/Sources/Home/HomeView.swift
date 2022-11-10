@@ -21,8 +21,24 @@ final class HomeView: UIView, ViewCodeContract {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
+    private lazy var iconView: UIView = {
+        let container = UIView()
+        container.backgroundColor = .lightGray
+        container.roundCorners(cornerRadius: 25)
+        container.translatesAutoresizingMaskIntoConstraints = false
+        return container
+    }()
+    
+    private lazy var firstNameLabel = EFLabel(
+        Current.shared.email.prefix(1).uppercased(),
+        font: UIFont.boldSystemFont(ofSize: 20)
+    )
+    
     func setupHierarchy() {
+        addSubview(iconView)
+        iconView.addSubview(firstNameLabel)
+        
         addSubview(usernameLabel)
         
         // First row of buttons
@@ -42,20 +58,31 @@ final class HomeView: UIView, ViewCodeContract {
     }
 
     func setupConstraints() {
-        usernameLabel
+        
+        iconView
             .topAnchor(in: self, padding: 30)
             .leftAnchor(in: self, padding: 20)
+            .heightAnchor(50)
+            .widthAnchor(50)
+        
+        usernameLabel
+            .centerY(in: iconView)
+            .leftAnchor(in: iconView, attribute: .right, padding: 15)
             .heightAnchor(30)
+        
+        firstNameLabel
+            .centerX(in: iconView)
+            .centerY(in: iconView)
         
         // First row of buttons
         firstButton
-            .topAnchor(in: self, padding: 100)
+            .topAnchor(in: iconView, attribute: .bottom, padding: 70)
             .leftAnchor(in: self, padding: 34)
         secondButton
-            .topAnchor(in: self, padding: 100)
+            .topAnchor(in: iconView, attribute: .bottom, padding: 70)
             .leftAnchor(in: firstButton, attribute: .right, padding: 10)
         thirdButton
-            .topAnchor(in: self, padding: 100)
+            .topAnchor(in: iconView, attribute: .bottom, padding: 70)
             .leftAnchor(in: secondButton, attribute: .right, padding: 10)
 
         // Second row of buttons
@@ -82,8 +109,8 @@ final class HomeView: UIView, ViewCodeContract {
     }
     
     private lazy var usernameLabel = UILabel() .. {
-        $0.text = "Usuário: Leonardo Portes"
-        $0.font = .boldSystemFont(ofSize: 20)
+        $0.text = Current.shared.email
+        $0.font = .systemFont(ofSize: 18)
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
 
@@ -137,5 +164,41 @@ final class HomeView: UIView, ViewCodeContract {
         background: .systemGreen,
         action: { self.buttonAction(.ninthBtn) }
     )
+
+    func setFirstColor(_ first: UIColor) {
+        self.firstButton.backgroundColor = first
+    }
+
+    func setSecondColor(_ second: UIColor) {
+        self.secondButton.backgroundColor = second
+    }
+    
+    func setThirdColor(_ third: UIColor) {
+        self.thirdButton.backgroundColor = third
+    }
+    
+    func setFourthColor(_ fourth: UIColor) {
+        self.fourthButton.backgroundColor = fourth
+    }
+    
+    func setFifthColor(_ fifth: UIColor) {
+        self.fifthButton.backgroundColor = fifth
+    }
+
+    func setSixthColor(_ sixth: UIColor) {
+        self.sixthButton.backgroundColor = sixth
+    }
+    
+    func setSeventhColor(_ seventh: UIColor) {
+        self.seventhButton.backgroundColor = seventh
+    }
+    
+    func setEighthColor(_ eighth: UIColor) {
+        self.eighthButton.backgroundColor = eighth
+    }
+    
+    func setNinthColor(_ ninth: UIColor) {
+        self.ninthButton.backgroundColor = ninth
+    }
 
 }

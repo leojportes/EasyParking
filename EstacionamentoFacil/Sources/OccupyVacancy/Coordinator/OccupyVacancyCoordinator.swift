@@ -9,9 +9,10 @@ import Foundation
 
 final class OccupyVacancyCoordinator: BaseCoordinator {
     
-    override func start() {
+    func start(idParkingSpace: String, indexParkingSpace: String) {
         let viewModel = OccupyVacancyViewModel(coordinator: self)
         let controller = OccupyVacancyViewController(viewModel: viewModel, coordinator: self)
+        controller.setParkingSpace(id: idParkingSpace, index: indexParkingSpace)
         configuration.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         configuration.navigationController?.pushViewController(controller, animated: true)
         configuration.navigationController?.navigationBar.tintColor = .darkGray
@@ -21,4 +22,13 @@ final class OccupyVacancyCoordinator: BaseCoordinator {
         configuration.navigationController?.popViewController(animated: true)
     }
 
+    func navigateToClientDetails(_ clientModel: ClientDetailModel) {
+        let coordinator = ClientDetailsCoordinator(with: configuration)
+        coordinator.start(clientModel)
+    }
+
+    func navigateToRegisterNewClient() {
+        let coordinator = RegisterNewClientCoordinator(with: configuration)
+        coordinator.start()
+    }
 }
