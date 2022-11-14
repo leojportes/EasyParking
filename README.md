@@ -3,7 +3,7 @@
 
 # Estacionamento Fácil - App
 
-<b>Aplicativo de gerenciamento de estacionamento.<br>
+<b>Aplicativo para gerenciamento de estacionamento.<br>
 
 ## Tópicos 
 
