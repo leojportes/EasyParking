@@ -21,8 +21,6 @@
 ## Descrição do Projeto
 <b>Aplicativo para gerenciar estacionamento, podendo cadastrar vagas, clientes com info do seu veículo, monitorar e gerenciar o status de cada vaga adicionada.<br>
 
-![AppFin4teen](https://github.com/leojportes/Fin4teen/blob/main/Corte.gif)
-
 ## Construção
 Aplicação foi desenvolvida em [Swift](https://www.apple.com/br/swift/) por meio da IDE Xcode.
 
