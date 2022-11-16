@@ -23,6 +23,12 @@
 
 ## Construção
 Aplicação foi desenvolvida em [Swift](https://www.apple.com/br/swift/) por meio da IDE Xcode.
+Arquitetura MVVM-C
+ 
+- Model
+- View
+- ViewModel
+- Coordinator
 
 ## Possíveis Melhorias
 <b>UX</b>: Melhorar design do aplicativo.<br>
