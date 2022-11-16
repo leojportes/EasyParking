@@ -23,7 +23,8 @@
 
 ## Construção
 Aplicação foi desenvolvida em [Swift](https://www.apple.com/br/swift/) por meio da IDE Xcode.
-Arquitetura MVVM-C
+
+# Arquitetura MVVM-C
  
 - Model
 - View
