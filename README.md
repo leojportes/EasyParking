@@ -19,7 +19,14 @@
 
 
 ## Descrição do Projeto
-<b>Aplicativo para gerenciar estacionamento, podendo cadastrar vagas, clientes com info do seu veículo, monitorar e gerenciar o status de cada vaga adicionada.<br>
+<b>Aplicativo para gerenciar estacionamento.
+
+Serviços:
+- Cadastrar vagas com status: `Livre` ou `Em manutenção`.
+- Cadastrar clientes com info do veículo.
+- Monitorar e gerenciar o status de cada vaga adicionada.<br>
+- Excluir cliente.
+- Excluir vaga.
 
 https://user-images.githubusercontent.com/65302846/203102424-4ea5199c-06d6-45e1-95c3-3324dda4a520.mp4
  
