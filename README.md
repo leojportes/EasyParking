@@ -36,14 +36,14 @@ https://user-images.githubusercontent.com/65302846/203102424-4ea5199c-06d6-45e1-
 - Coordinator
 
 ## Possíveis Melhorias
-<b>UX</b>: Melhorar design e UX do aplicativo.<br>
-<b>Testes</b>: Aplicação de testes unitários.
+- <b>UX</b>: Melhorar design e UX do aplicativo.<br>
+- <b>Testes</b>: Aplicação de testes unitários.
 
 ## Build
-Necessário ter [Xcode](https://developer.apple.com/xcode/) instalado.
+- Necessário ter [Xcode](https://developer.apple.com/xcode/) instalado.
 
 ## Dependências
-<b>Firebase/Auth<br>
+- <b>Firebase/Auth<br>
  
-Projeto gerado com Xcode version 13.4.
+- Projeto gerado com Xcode version 13.4.
 
