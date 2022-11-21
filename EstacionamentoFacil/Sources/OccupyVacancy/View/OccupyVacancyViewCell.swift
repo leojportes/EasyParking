@@ -22,6 +22,8 @@ final class OccupyVacancyViewCell: UITableViewCell, ViewCodeContract {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Viewcode
+    
     private lazy var backView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -29,8 +31,6 @@ final class OccupyVacancyViewCell: UITableViewCell, ViewCodeContract {
         return view
     }()
     
-    // MARK: - Viewcode
-
     private lazy var plateLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 17)
@@ -59,7 +59,7 @@ final class OccupyVacancyViewCell: UITableViewCell, ViewCodeContract {
         return label
     }()
     
-    private lazy var colorLabel: UILabel = {
+    private lazy var occupyVacancyLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 13)
         label.textColor = UIColor(named: "grayDescription")
@@ -69,15 +69,22 @@ final class OccupyVacancyViewCell: UITableViewCell, ViewCodeContract {
         return label
     }()
 
-    lazy var icon = UIImageView() .. {
+    private lazy var icon = UIImageView() .. {
         $0.image = UIImage(named: "ic_plate")
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    lazy var separatorLine = UIView() .. {
+    private lazy var separatorLine = UIView() .. {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.backgroundColor = .lightGray
+        $0.backgroundColor = UIColor(named: "separatorGray")
         $0.heightAnchor(1)
+    }
+    
+    private lazy var statusView = UIView() .. {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.roundCorners(cornerRadius: 4)
+        $0.heightAnchor(8)
+        $0.widthAnchor(8)
     }
     
     // MARK: - Viewcode methods
@@ -87,8 +94,9 @@ final class OccupyVacancyViewCell: UITableViewCell, ViewCodeContract {
         backView.addSubview(plateLabel)
         backView.addSubview(clientNameLabel)
         backView.addSubview(modelLabel)
-        backView.addSubview(colorLabel)
+        backView.addSubview(occupyVacancyLabel)
         backView.addSubview(separatorLine)
+        backView.addSubview(statusView)
     }
     
     func setupConstraints() {
@@ -104,7 +112,7 @@ final class OccupyVacancyViewCell: UITableViewCell, ViewCodeContract {
     
         icon
             .centerY(in: backView)
-            .leftAnchor(in: backView, padding: 23)
+            .leftAnchor(in: backView, padding: 20)
             .widthAnchor(30)
             .heightAnchor(30)
         
@@ -123,18 +131,21 @@ final class OccupyVacancyViewCell: UITableViewCell, ViewCodeContract {
             .leftAnchor(in: clientNameLabel, attribute: .right, padding: 10)
             .rightAnchor(in: backView, padding: 20)
         
-        colorLabel
+        occupyVacancyLabel
             .topAnchor(in: modelLabel, attribute: .bottom, padding: 5)
             .rightAnchor(in: backView, padding: 20)
-            .leftAnchor(in: clientNameLabel, attribute: .right, padding: 5)
+        
+        statusView
+            .centerY(in: occupyVacancyLabel)
+            .rightAnchor(in: occupyVacancyLabel, attribute: .left, padding: 5)
         
         separatorLine
-            .topAnchor(in: colorLabel, attribute: .bottom, padding: 18)
+            .topAnchor(in: occupyVacancyLabel, attribute: .bottom, padding: 18)
             .rightAnchor(in: backView)
             .leftAnchor(in: backView)
 
     }
-    
+
     func setupConfiguration() {
         selectionStyle = .none
     }
@@ -144,12 +155,18 @@ final class OccupyVacancyViewCell: UITableViewCell, ViewCodeContract {
         plate: String? = nil,
         clientName: String? = nil,
         model: String? = nil,
-        color: String? = nil
+        color: String? = nil,
+        parkingSpace: String? = nil
     ) {
         plateLabel.text = plate
         clientNameLabel.text = clientName
-        modelLabel.text = model
-        colorLabel.text = color
+        modelLabel.text = "\(model ?? "") • \(color ?? "")"
+        occupyVacancyLabel.text = parkingSpace != ""
+        ? "Ocupando a vaga nº \(parkingSpace ?? "")"
+        : "Disponível para ocupar"
+        
+        statusView.backgroundColor = parkingSpace != ""
+        ? .systemRed : .systemGreen
     }
 
 }

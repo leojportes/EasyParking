@@ -15,6 +15,7 @@ class ErrorView: UIView {
         titleLabel.text = title
         subTitleLabel.text = subTitle
         setupView()
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     required init?(coder: NSCoder) {

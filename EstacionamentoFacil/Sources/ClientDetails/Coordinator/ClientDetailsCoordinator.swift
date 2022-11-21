@@ -9,9 +9,9 @@ import Foundation
 
 final class ClientDetailsCoordinator: BaseCoordinator {
 
-    func start(_ clientModel: ClientDetailModel) {
+    func start(_ clientModel: ClientDetailModel, _ numParkingSpace: String) {
         let viewModel = ClientDetailsViewModel(coordinator: self)
-        let controller = ClientDetailsViewController(clientModel, viewModel: viewModel, coordinator: self)
+        let controller = ClientDetailsViewController(clientModel, numParkingSpace, viewModel: viewModel, coordinator: self)
         configuration.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         configuration.navigationController?.pushViewController(controller, animated: true)
     }

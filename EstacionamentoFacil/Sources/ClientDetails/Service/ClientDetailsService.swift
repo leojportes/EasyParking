@@ -10,6 +10,7 @@ import Foundation
 
 protocol ClientDetailsServiceProtocol {
     func occupyParkingSpace(parkingSpace: ParkingSpace, id: String, completion: @escaping (Bool) -> Void)
+    func deleteClient(id: String, completion: @escaping (Bool) -> Void)
 }
 
 class ClientDetailsService: ClientDetailsServiceProtocol {
@@ -35,6 +36,29 @@ class ClientDetailsService: ClientDetailsServiceProtocol {
         request.httpBody = jsonData
         
         URLSession.shared.dataTask(with: request) { data, response, error in
+            guard error == nil else {
+                completion(false)
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, (200 ..< 299) ~= response.statusCode else {
+                completion(false)
+                return
+            }
+            DispatchQueue.main.async {
+                completion(true)
+            }
+        }.resume()
+    }
+    
+    func deleteClient(id: String, completion: @escaping (Bool) -> Void) {
+        guard let url = URL(string: "\(baseUrl)/client/\(id)") else {
+            print("Error: cannot create URL")
+            return
+        }
+        var urlReq = URLRequest(url: url)
+        urlReq.httpMethod = "DELETE"
+        URLSession.shared.dataTask(with: urlReq) { data, response, error in
             guard error == nil else {
                 completion(false)
                 return

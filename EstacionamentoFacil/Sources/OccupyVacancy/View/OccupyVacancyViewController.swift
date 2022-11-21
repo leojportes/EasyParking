@@ -14,10 +14,16 @@ class OccupyVacancyViewController: CoordinatedViewController {
     private var searchText = ""
     private var indexParkingSpace: String = ""
     private var idParkingSpace: String = ""
+    private var parkingSpace: ParkingSpace = .none
 
     private lazy var rootView = OccupyVacancyView(
+        parkingSpace: self.parkingSpace,
         didTapRegisterClientButton: { self.viewModel.navigateToRegisterNewClient() },
-        didTapClient: { client in self.didTapClient(client) }
+        didTapClient: { [weak self] client in self?.didTapClient(client) },
+        showAlert: { self.showAlert(
+            title: "Escolha outro cliente!",
+            message: "Cliente já ocupando uma vaga."
+        ) }
     )
 
     private lazy var searchVC = UISearchController()
@@ -36,8 +42,15 @@ class OccupyVacancyViewController: CoordinatedViewController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Ocupar Vaga"
+        title = "Ocupar Vaga nº \(self.indexParkingSpace)"
         createSearchBar()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .trash,
+            target: self,
+            action: #selector(deleteParkingSpace)
+        )
+
     }
 
     override func loadView() {
@@ -53,9 +66,13 @@ class OccupyVacancyViewController: CoordinatedViewController {
     private func bindProperties() {
         /// Fetch all clients from api
         viewModel.input.viewDidLoad()
-        viewModel.output.clients.bind() { result in
-            self.clientsItems = result
-            self.rootView.clientItems = result
+        viewModel.output.clients.bind() { [weak self] result in
+            self?.clientsItems = result
+            self?.rootView.clientItems = result
+        }
+        
+        viewModel.output.parkingSpaces.bind() { [weak self] result in
+            self?.rootView.parkingSpaces = result
         }
     }
 
@@ -73,16 +90,43 @@ class OccupyVacancyViewController: CoordinatedViewController {
             indexParkingSpace: self.indexParkingSpace,
             idParkingSpace: self.idParkingSpace
         )
-        viewModel.didTapClientToOccupyVacancy(clientModel)
+        viewModel.didTapClientToOccupyVacancy(clientModel, self.indexParkingSpace)
     }
 
     private func didTapRegisterNewClient() {
         viewModel.navigateToRegisterNewClient()
     }
 
-    func setParkingSpace(id: String, index: String) {
-        self.indexParkingSpace = index
-        self.idParkingSpace = id
+    func setParkingSpace(parkingSpace: ParkingSpace) {
+        self.indexParkingSpace = parkingSpace.numSpace
+        self.parkingSpace = parkingSpace
+        self.idParkingSpace = parkingSpace._id
+    }
+    
+    @objc private func deleteParkingSpace() {
+        self.showAlertTwoActions(
+            title: "Atenção!",
+            message: "Deseja apagar a vaga nº \(self.indexParkingSpace) ?",
+            leftButtonTitle: "Cancelar",
+            rightButtonTitle: "Apagar"
+        ) {
+            self.viewModel.deleteParkingSpace(id: self.idParkingSpace) { success in
+                if success {
+                    DispatchQueue.main.async {
+                        self.showAlert(title: "Vaga deletada!") {
+                            self.viewModel.dismiss()
+                        }
+                    }
+                } else {
+                    self.showAlert(
+                        title: "Ops!",
+                        message: "Tivemos algum problema ao deletar a vaga."
+                    ) {
+                        self.viewModel.dismiss()
+                    }
+                }
+            }
+        }
     }
 }
 

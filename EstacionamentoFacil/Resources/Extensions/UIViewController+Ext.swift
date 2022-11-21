@@ -32,14 +32,31 @@ extension UIViewController {
     func showAlertTwoActions(
         title: String = "",
         message: String = "",
+        leftButtonTitle: String = "Ok",
+        rightButtonTitle: String = "Liberar vaga",
+        leftLabels: Bool = false,
         completion: @escaping () -> Void? = { nil }
     ) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Ok", style: .cancel)
+        let ok = UIAlertAction(title: leftButtonTitle, style: .cancel)
         alert.addAction(ok)
-        let vacate = UIAlertAction(title: "Liberar vaga", style: .default) { _ in completion() }
+        let vacate = UIAlertAction(title: rightButtonTitle, style: .default) { _ in completion() }
         vacate.setValue(UIColor.systemRed, forKey: "titleTextColor")
         alert.addAction(vacate)
+        
+        if leftLabels {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .left
+            let messageText = NSAttributedString(
+                string: message,
+                attributes: [
+                    NSAttributedString.Key.paragraphStyle: paragraphStyle,
+                    NSAttributedString.Key.foregroundColor: UIColor(named: "grayDarkest"),
+                    NSAttributedString.Key.font: UIFont(name: "HelveticaNeue", size: 15)
+                ]
+            )
+            alert.setValue(messageText, forKey: "attributedMessage")
+        }
         self.present(alert, animated: true, completion: nil)
     }
 }

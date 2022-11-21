@@ -5,7 +5,7 @@
 //  Created by Leonardo Portes on 24/10/22.
 //
 
-import Foundation
+import UIKit
 
 final class LoginCoordinator: BaseCoordinator {
     

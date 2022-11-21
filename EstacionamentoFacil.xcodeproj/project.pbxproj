@@ -37,7 +37,6 @@
 		C08672762919DC24001F5B42 /* OccupyVacancyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08672752919DC24001F5B42 /* OccupyVacancyService.swift */; };
 		C08672782919EA76001F5B42 /* EFLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08672772919EA76001F5B42 /* EFLabel.swift */; };
 		C086727A2919EAA1001F5B42 /* OccupyVacancyCardSectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08672792919EAA1001F5B42 /* OccupyVacancyCardSectionsView.swift */; };
-		C097077E29149B7500A3B27E /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C097077D29149B7500A3B27E /* HomeModel.swift */; };
 		C098D71B291C3E8E0085AABB /* ClientDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C098D71A291C3E8E0085AABB /* ClientDetailViewModel.swift */; };
 		C098D71E291C3F110085AABB /* ClientDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C098D71D291C3F110085AABB /* ClientDetailsService.swift */; };
 		C098D721291C3F620085AABB /* ParkingSpaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C098D720291C3F620085AABB /* ParkingSpaceModel.swift */; };
@@ -46,6 +45,12 @@
 		C0C07A2B291B5121006374D9 /* EFCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C07A2A291B5121006374D9 /* EFCardView.swift */; };
 		C0C07A2D291B51D3006374D9 /* EFErrorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C07A2C291B51D3006374D9 /* EFErrorTableViewCell.swift */; };
 		C0C07A2F291B51FD006374D9 /* EFErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C07A2E291B51FD006374D9 /* EFErrorView.swift */; };
+		C0C1E675291FD7360080A911 /* HomeParkingSpaceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C1E674291FD7350080A911 /* HomeParkingSpaceViewCell.swift */; };
+		C0C1E678292014C40080A911 /* RegisterNewParkingSpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C1E677292014C40080A911 /* RegisterNewParkingSpaceView.swift */; };
+		C0C1E67A292014E30080A911 /* RegisterNewParkingSpaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C1E679292014E20080A911 /* RegisterNewParkingSpaceViewModel.swift */; };
+		C0C1E67C292014F00080A911 /* RegisterNewParkingSpaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C1E67B292014F00080A911 /* RegisterNewParkingSpaceController.swift */; };
+		C0C1E67E292014F90080A911 /* RegisterNewParkingSpaceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C1E67D292014F90080A911 /* RegisterNewParkingSpaceCoordinator.swift */; };
+		C0C1E680292015070080A911 /* RegisterNewParkingSpaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C1E67F292015070080A911 /* RegisterNewParkingSpaceService.swift */; };
 		C0CFFD242907552D000ADF3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFFD232907552D000ADF3A /* AppDelegate.swift */; };
 		C0CFFD262907552D000ADF3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFFD252907552D000ADF3A /* SceneDelegate.swift */; };
 		C0CFFD282907552D000ADF3A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFFD272907552D000ADF3A /* LoginViewController.swift */; };
@@ -138,7 +143,6 @@
 		C08672752919DC24001F5B42 /* OccupyVacancyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccupyVacancyService.swift; sourceTree = "<group>"; };
 		C08672772919EA76001F5B42 /* EFLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFLabel.swift; sourceTree = "<group>"; };
 		C08672792919EAA1001F5B42 /* OccupyVacancyCardSectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccupyVacancyCardSectionsView.swift; sourceTree = "<group>"; };
-		C097077D29149B7500A3B27E /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		C098D71A291C3E8E0085AABB /* ClientDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailViewModel.swift; sourceTree = "<group>"; };
 		C098D71D291C3F110085AABB /* ClientDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsService.swift; sourceTree = "<group>"; };
 		C098D720291C3F620085AABB /* ParkingSpaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpaceModel.swift; sourceTree = "<group>"; };
@@ -147,6 +151,12 @@
 		C0C07A2A291B5121006374D9 /* EFCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFCardView.swift; sourceTree = "<group>"; };
 		C0C07A2C291B51D3006374D9 /* EFErrorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFErrorTableViewCell.swift; sourceTree = "<group>"; };
 		C0C07A2E291B51FD006374D9 /* EFErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFErrorView.swift; sourceTree = "<group>"; };
+		C0C1E674291FD7350080A911 /* HomeParkingSpaceViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeParkingSpaceViewCell.swift; sourceTree = "<group>"; };
+		C0C1E677292014C40080A911 /* RegisterNewParkingSpaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewParkingSpaceView.swift; sourceTree = "<group>"; };
+		C0C1E679292014E20080A911 /* RegisterNewParkingSpaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewParkingSpaceViewModel.swift; sourceTree = "<group>"; };
+		C0C1E67B292014F00080A911 /* RegisterNewParkingSpaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewParkingSpaceController.swift; sourceTree = "<group>"; };
+		C0C1E67D292014F90080A911 /* RegisterNewParkingSpaceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewParkingSpaceCoordinator.swift; sourceTree = "<group>"; };
+		C0C1E67F292015070080A911 /* RegisterNewParkingSpaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewParkingSpaceService.swift; sourceTree = "<group>"; };
 		C0CFFD202907552D000ADF3A /* EstacionamentoFacil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EstacionamentoFacil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CFFD232907552D000ADF3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0CFFD252907552D000ADF3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -420,6 +430,18 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		C0C1E6762920149D0080A911 /* RegisterNewParkingSpace */ = {
+			isa = PBXGroup;
+			children = (
+				C0C1E677292014C40080A911 /* RegisterNewParkingSpaceView.swift */,
+				C0C1E679292014E20080A911 /* RegisterNewParkingSpaceViewModel.swift */,
+				C0C1E67B292014F00080A911 /* RegisterNewParkingSpaceController.swift */,
+				C0C1E67D292014F90080A911 /* RegisterNewParkingSpaceCoordinator.swift */,
+				C0C1E67F292015070080A911 /* RegisterNewParkingSpaceService.swift */,
+			);
+			path = RegisterNewParkingSpace;
+			sourceTree = "<group>";
+		};
 		C0CFFD172907552D000ADF3A = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +511,10 @@
 		C0CFFD6629075F14000ADF3A /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				C0CFFD252907552D000ADF3A /* SceneDelegate.swift */,
+				C0CFFD2E2907552D000ADF3A /* LaunchScreen.storyboard */,
+				C0CFFD2C2907552D000ADF3A /* Assets.xcassets */,
+				C0CFFD232907552D000ADF3A /* AppDelegate.swift */,
 				C0CFFD5329075EB8000ADF3A /* LayoutHelpers */,
 				C0CFFD6729075F2D000ADF3A /* Coordinator */,
 				C0CFFD7C2907630D000ADF3A /* CascadeOperator.swift */,
@@ -516,10 +542,6 @@
 				C0CFFD6629075F14000ADF3A /* Infrastructure */,
 				C070020C29133AB100B4DFE6 /* Extensions */,
 				C0CFFD7929076268000ADF3A /* UIComponents */,
-				C0CFFD2E2907552D000ADF3A /* LaunchScreen.storyboard */,
-				C0CFFD2C2907552D000ADF3A /* Assets.xcassets */,
-				C0CFFD232907552D000ADF3A /* AppDelegate.swift */,
-				C0CFFD252907552D000ADF3A /* SceneDelegate.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -527,6 +549,7 @@
 		C0CFFD7129075F51000ADF3A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C0F9FCD3291C8E6300E85F5E /* Current.swift */,
 				C0F9FCD6291C919800E85F5E /* CreateAccount */,
 				C039D0B3291C0B5D00CB11B9 /* RegisterNewClient */,
 				C039D0AA291C037400CB11B9 /* ClientDetails */,
@@ -534,7 +557,6 @@
 				C086726A2919DA82001F5B42 /* OccupyVacancy */,
 				C0CFFD732907605D000ADF3A /* Home */,
 				C0CFFD7229076059000ADF3A /* Login */,
-				C0F9FCD3291C8E6300E85F5E /* Current.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -554,12 +576,13 @@
 		C0CFFD732907605D000ADF3A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C0C1E6762920149D0080A911 /* RegisterNewParkingSpace */,
 				C07001FE2913248700B4DFE6 /* HomeView.swift */,
 				C07002002913249000B4DFE6 /* HomeViewController.swift */,
 				C07002022913249800B4DFE6 /* HomeCoordinator.swift */,
 				C0700204291325FC00B4DFE6 /* HomeViewModel.swift */,
 				C0700206291326B900B4DFE6 /* HomeService.swift */,
-				C097077D29149B7500A3B27E /* HomeModel.swift */,
+				C0C1E674291FD7350080A911 /* HomeParkingSpaceViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -836,10 +859,10 @@
 				C0CFFD6F29075F2D000ADF3A /* Coordinator.swift in Sources */,
 				C0700209291326FB00B4DFE6 /* LoginService.swift in Sources */,
 				C039D0B5291C0B7100CB11B9 /* RegisterNewClientView.swift in Sources */,
+				C0C1E67E292014F90080A911 /* RegisterNewParkingSpaceCoordinator.swift in Sources */,
 				C039D0AC291C038300CB11B9 /* ClientDetailsView.swift in Sources */,
 				C0CFFD282907552D000ADF3A /* LoginViewController.swift in Sources */,
 				C0C07A26291B2492006374D9 /* Bindable.swift in Sources */,
-				C097077E29149B7500A3B27E /* HomeModel.swift in Sources */,
 				C0F9FCDA291C927800E85F5E /* CreateAccountViewController.swift in Sources */,
 				C086727A2919EAA1001F5B42 /* OccupyVacancyCardSectionsView.swift in Sources */,
 				C0CFFD5D29075EB8000ADF3A /* ViewCodeContract.swift in Sources */,
@@ -848,6 +871,7 @@
 				C0C07A2B291B5121006374D9 /* EFCardView.swift in Sources */,
 				C0F9FCE0291C93AC00E85F5E /* CreateAccountCoordinator.swift in Sources */,
 				C0CFFD6D29075F2D000ADF3A /* CoordinatedViewController.swift in Sources */,
+				C0C1E67A292014E30080A911 /* RegisterNewParkingSpaceViewModel.swift in Sources */,
 				C08672722919DAB6001F5B42 /* OccupyVacancyViewModel.swift in Sources */,
 				C039D0B9291C0B7E00CB11B9 /* RegisterNewClientViewController.swift in Sources */,
 				C0F9FCE4291CAF1C00E85F5E /* OccupyVacancyViewCell.swift in Sources */,
@@ -856,6 +880,7 @@
 				C070020B2913271A00B4DFE6 /* LoginViewModel.swift in Sources */,
 				C0CFFD5E29075EB8000ADF3A /* UIView+SafeAreaAnchors.swift in Sources */,
 				C08672782919EA76001F5B42 /* EFLabel.swift in Sources */,
+				C0C1E67C292014F00080A911 /* RegisterNewParkingSpaceController.swift in Sources */,
 				C0CFFD83290764DD000ADF3A /* String+Ext.swift in Sources */,
 				C0CFFD6029075EB8000ADF3A /* AutoLayoutOption.swift in Sources */,
 				C0700205291325FC00B4DFE6 /* HomeViewModel.swift in Sources */,
@@ -863,6 +888,7 @@
 				C070020E29133ABB00B4DFE6 /* UIView+Ext.swift in Sources */,
 				C039D0C4291C195600CB11B9 /* UIViewController+Ext.swift in Sources */,
 				C039D0AE291C03A400CB11B9 /* ClientDetailsViewController.swift in Sources */,
+				C0C1E675291FD7360080A911 /* HomeParkingSpaceViewCell.swift in Sources */,
 				C0CFFD6C29075F2D000ADF3A /* CoordinatorConfiguration.swift in Sources */,
 				C0CFFD242907552D000ADF3A /* AppDelegate.swift in Sources */,
 				C098D71E291C3F110085AABB /* ClientDetailsService.swift in Sources */,
@@ -871,6 +897,7 @@
 				C0CFFD6429075EB8000ADF3A /* ActionTypealias.swift in Sources */,
 				C0F9FCDE291C931B00E85F5E /* CreateAccountViewModel.swift in Sources */,
 				C08672742919DABD001F5B42 /* ClientModel.swift in Sources */,
+				C0C1E680292015070080A911 /* RegisterNewParkingSpaceService.swift in Sources */,
 				C0CFFD7F2907636D000ADF3A /* TextField+Ext.swift in Sources */,
 				C0CFFD7B29076283000ADF3A /* EFTextField.swift in Sources */,
 				C08672702919DAAA001F5B42 /* OccupyVacancyCoordinator.swift in Sources */,
@@ -895,6 +922,7 @@
 				C0CFFD6329075EB8000ADF3A /* UIView+RawAnchors.swift in Sources */,
 				C08672762919DC24001F5B42 /* OccupyVacancyService.swift in Sources */,
 				C0F9FCD8291C91AD00E85F5E /* CreateAccountView.swift in Sources */,
+				C0C1E678292014C40080A911 /* RegisterNewParkingSpaceView.swift in Sources */,
 				C0CFFD6129075EB8000ADF3A /* UIView+LayoutGuides.swift in Sources */,
 				C0C07A2F291B51FD006374D9 /* EFErrorView.swift in Sources */,
 			);
@@ -1064,6 +1092,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B26UWH9L8Q;
@@ -1094,6 +1123,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B26UWH9L8Q;

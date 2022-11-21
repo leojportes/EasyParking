@@ -9,13 +9,13 @@ import UIKit
 
 final class RegisterNewClientView: UIView, ViewCodeContract {
     
-    private var didTapRegisterNewClientButton: (ClientModel) -> Void?
+    private var didTapRegisterNewClientButton: (RegisterNewClientModel) -> Void?
     private var didTapCancel: Action?
     private var shouldShowAlert: Action?
     var shouldHiddenNavigationBarAction: (Bool) -> Void = { _ in }
     
     init(
-        didTapRegisterNewClientButton: @escaping (ClientModel) -> Void?,
+        didTapRegisterNewClientButton: @escaping (RegisterNewClientModel) -> Void?,
         didTapCancel: @escaping Action,
         shouldShowAlert: @escaping Action
     ) {
@@ -71,9 +71,15 @@ final class RegisterNewClientView: UIView, ViewCodeContract {
         $0.font = .systemFont(ofSize: 16)
         $0.textColor = .darkGray
     }
-    private lazy var documentTextField = RegisterClientTextField(titlePlaceholder: "ex: 000.000.000.00")
+    private lazy var documentTextField = RegisterClientTextField(
+        titlePlaceholder: "ex: 000.000.000.00"
+    )
     
-    private lazy var vehicleDataLabel = EFLabel("Dados do Veículo", font: .boldSystemFont(ofSize: 20))
+    private lazy var vehicleDataLabel = EFLabel(
+        "Dados do Veículo",
+        font: .boldSystemFont(ofSize: 20)
+    )
+    
     private lazy var plateLabel = EFLabel("Placa") .. {
         $0.font = .systemFont(ofSize: 16)
         $0.textColor = .darkGray
@@ -101,7 +107,6 @@ final class RegisterNewClientView: UIView, ViewCodeContract {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.heightAnchor(100)
     }
-    
     
     func setupHierarchy() {
         addSubview(scrollView)
@@ -253,7 +258,7 @@ final class RegisterNewClientView: UIView, ViewCodeContract {
         } else {
             let email = Current.shared.email
             didTapRegisterNewClientButton(
-                ClientModel(
+                RegisterNewClientModel(
                     emailFirebase: email,
                     clientName: clientNameTextField.text ?? "",
                     cpfClient: documentTextField.text ?? "",
@@ -284,7 +289,8 @@ class RegisterClientTextField: UITextField {
         borderWidth: CGFloat = 0.5,
         keyboardType: UIKeyboardType = .default,
         isSecureTextEntry: Bool = false,
-        showBaseLine: Bool = false
+        showBaseLine: Bool = false,
+        inputView: UIView? = nil
     ) {
         super.init(frame: .zero)
         self.attributedPlaceholder = NSAttributedString(
@@ -297,6 +303,7 @@ class RegisterClientTextField: UITextField {
         self.layer.borderWidth = borderWidth
         self.translatesAutoresizingMaskIntoConstraints = false
         self.keyboardType = keyboardType
+        self.inputView = inputView
         self.isSecureTextEntry = isSecureTextEntry
         self.setPaddingLeft()
         

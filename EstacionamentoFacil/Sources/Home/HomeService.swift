@@ -10,7 +10,8 @@ import FirebaseAuth
 
 protocol HomeServiceProtocol {
     func getParkingSpaces(completion: @escaping ([ParkingSpace]) -> Void)
-    func occupyParkingSpace(parkingSpace: ParkingSpace, id: String, completion: @escaping (Bool) -> Void) 
+    func occupyParkingSpace(parkingSpace: ParkingSpace, id: String, completion: @escaping (Bool) -> Void)
+    func getClientsList(completion: @escaping ([ClientModel]) -> Void)
 }
 
 class HomeService: HomeServiceProtocol {
@@ -67,6 +68,24 @@ class HomeService: HomeServiceProtocol {
             }
             DispatchQueue.main.async {
                 completion(true)
+            }
+        }.resume()
+    }
+
+    // Get clients list
+    func getClientsList(completion: @escaping ([ClientModel]) -> Void) {
+        let email = Current.shared.email
+        let urlString = "\(baseUrl)/clients/\(email)"
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data else { return }
+            do {
+                let result = try JSONDecoder().decode([ClientModel].self, from: data)
+                DispatchQueue.main.async { completion(result) }
+            }
+            catch {
+                let error = error
+                print(error)
             }
         }.resume()
     }

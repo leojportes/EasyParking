@@ -19,20 +19,16 @@ extension UIView {
 extension UIView {
     
     /// Adiciona bordas arredondadas em um componente UIView
-    func roundCorners(cornerRadius: CGFloat, typeCorners: CACornerMask? = nil, all: Bool = false) {
+    func roundCorners(cornerRadius: CGFloat, typeCorners: CACornerMask? = nil) {
         self.layer.cornerRadius = cornerRadius
         self.clipsToBounds = true
-        if all {
-            self.layer.maskedCorners = [.topLeft,
-                                        .topRight,
-                                        .bottomLeft,
-                                        .bottomRight]
-        } else {
-            self.layer.maskedCorners = typeCorners ?? [.topLeft,
-                                                       .topRight,
-                                                       .bottomLeft,
-                                                       .bottomRight]
-        }
+        self.layer.maskedCorners = typeCorners ?? [
+            .topLeft,
+            .topRight,
+            .bottomLeft,
+            .bottomRight
+        ]
+        
     }
     
 }

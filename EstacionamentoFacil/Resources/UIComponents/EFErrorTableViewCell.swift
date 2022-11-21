@@ -28,7 +28,6 @@ final class EFErrorTableViewCell: UITableViewCell, ViewCodeContract {
             subTitle: "Cadastre um novo cliente com esta placa.",
             imageName: "icon-alert-error"
         )
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         return view
     }()

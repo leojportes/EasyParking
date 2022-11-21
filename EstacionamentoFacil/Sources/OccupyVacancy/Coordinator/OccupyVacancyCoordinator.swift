@@ -5,14 +5,14 @@
 //  Created by Leonardo Portes on 07/11/22.
 //
 
-import Foundation
+import UIKit
 
 final class OccupyVacancyCoordinator: BaseCoordinator {
     
-    func start(idParkingSpace: String, indexParkingSpace: String) {
+    func start(parkingSpace: ParkingSpace) {
         let viewModel = OccupyVacancyViewModel(coordinator: self)
         let controller = OccupyVacancyViewController(viewModel: viewModel, coordinator: self)
-        controller.setParkingSpace(id: idParkingSpace, index: indexParkingSpace)
+        controller.setParkingSpace(parkingSpace: parkingSpace)
         configuration.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         configuration.navigationController?.pushViewController(controller, animated: true)
         configuration.navigationController?.navigationBar.tintColor = .darkGray
@@ -22,9 +22,9 @@ final class OccupyVacancyCoordinator: BaseCoordinator {
         configuration.navigationController?.popViewController(animated: true)
     }
 
-    func navigateToClientDetails(_ clientModel: ClientDetailModel) {
+    func navigateToClientDetails(_ clientModel: ClientDetailModel, _ numParkingSpace: String) {
         let coordinator = ClientDetailsCoordinator(with: configuration)
-        coordinator.start(clientModel)
+        coordinator.start(clientModel, numParkingSpace)
     }
 
     func navigateToRegisterNewClient() {

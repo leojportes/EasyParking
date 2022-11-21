@@ -7,15 +7,26 @@
 
 import UIKit
 
-final class HomeView: UIView, ViewCodeContract {
+final class HomeViewV2: UIView, ViewCodeContract {
     
-    private var buttonAction: (ButtonID) -> Void?
+    private var buttonAction: (ParkingSpace) -> Void?
+    private var didTapCrateParkingSpace: Action?
+    
+    var parkingSpaces: [ParkingSpace] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
 
-    init(didTapButton: @escaping (ButtonID) -> Void?) {
+    init(
+        didTapButton: @escaping (ParkingSpace) -> Void?,
+        didTapCrateParkingSpace: @escaping Action
+    ) {
         self.buttonAction = didTapButton
+        self.didTapCrateParkingSpace = didTapCrateParkingSpace
         super.init(frame: .zero)
         setupView()
-        backgroundColor = .white
+        backgroundColor = UIColor(named: "separatorGray")
     }
     
     required init?(coder: NSCoder) {
@@ -29,36 +40,48 @@ final class HomeView: UIView, ViewCodeContract {
         container.translatesAutoresizingMaskIntoConstraints = false
         return container
     }()
-    
+
     private lazy var firstNameLabel = EFLabel(
         Current.shared.email.prefix(1).uppercased(),
         font: UIFont.boldSystemFont(ofSize: 20)
     )
+
+    lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: 100, height: 100)
+        let collection = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: layout
+        )
+        collection.register(
+            HomeParkingSpaceViewCell.self,
+            forCellWithReuseIdentifier: HomeParkingSpaceViewCell.identifier
+        )
+        collection.delegate = self
+        collection.dataSource = self
+        collection.backgroundColor = UIColor(named: "separatorGray")
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        return collection
+    }()
+    
+    private lazy var emptyView = ErrorView(
+        title: "Nenhuma vaga encontrada!",
+        subTitle: "Cadastre uma vaga para seu estacionamento.",
+        imageName: "icon-alert-error"
+    ) .. {
+        $0.isHidden = true
+    }
     
     func setupHierarchy() {
         addSubview(iconView)
+        addSubview(emptyView)
         iconView.addSubview(firstNameLabel)
-        
         addSubview(usernameLabel)
-        
-        // First row of buttons
-        addSubview(firstButton)
-        addSubview(secondButton)
-        addSubview(thirdButton)
-        
-        // Second row of buttons
-        addSubview(fourthButton)
-        addSubview(fifthButton)
-        addSubview(sixthButton)
-        
-        // Third row of buttons
-        addSubview(seventhButton)
-        addSubview(eighthButton)
-        addSubview(ninthButton)
+        addSubview(collectionView)
     }
 
     func setupConstraints() {
-        
         iconView
             .topAnchor(in: self, padding: 30)
             .leftAnchor(in: self, padding: 20)
@@ -74,38 +97,17 @@ final class HomeView: UIView, ViewCodeContract {
             .centerX(in: iconView)
             .centerY(in: iconView)
         
-        // First row of buttons
-        firstButton
-            .topAnchor(in: iconView, attribute: .bottom, padding: 70)
-            .leftAnchor(in: self, padding: 34)
-        secondButton
-            .topAnchor(in: iconView, attribute: .bottom, padding: 70)
-            .leftAnchor(in: firstButton, attribute: .right, padding: 10)
-        thirdButton
-            .topAnchor(in: iconView, attribute: .bottom, padding: 70)
-            .leftAnchor(in: secondButton, attribute: .right, padding: 10)
-
-        // Second row of buttons
-        fourthButton
-            .topAnchor(in: firstButton, attribute: .bottom, padding: 20)
-            .leftAnchor(in: self, padding: 34)
-        fifthButton
-            .topAnchor(in: secondButton, attribute: .bottom, padding: 20)
-            .leftAnchor(in: firstButton, attribute: .right, padding: 10)
-        sixthButton
-            .topAnchor(in: thirdButton, attribute: .bottom, padding: 20)
-            .leftAnchor(in: secondButton, attribute: .right, padding: 10)
+        emptyView
+            .topAnchor(in: self, padding: 130)
+            .leftAnchor(in: self, padding: 20)
+            .rightAnchor(in: self, padding: 20)
+            .bottomAnchor(in: self, layoutOption: .useMargins)
         
-        // Third row of buttons
-        seventhButton
-            .topAnchor(in: fourthButton, attribute: .bottom, padding: 20)
-            .leftAnchor(in: self, padding: 34)
-        eighthButton
-            .topAnchor(in: fifthButton, attribute: .bottom, padding: 20)
-            .leftAnchor(in: seventhButton, attribute: .right, padding: 10)
-        ninthButton
-            .topAnchor(in: sixthButton, attribute: .bottom, padding: 20)
-            .leftAnchor(in: eighthButton, attribute: .right, padding: 10)
+        collectionView
+            .topAnchor(in: self, padding: 130)
+            .leftAnchor(in: self, padding: 20)
+            .rightAnchor(in: self, padding: 20)
+            .bottomAnchor(in: self, layoutOption: .useMargins)
     }
     
     private lazy var usernameLabel = UILabel() .. {
@@ -114,91 +116,40 @@ final class HomeView: UIView, ViewCodeContract {
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    // First row of buttons
-    private lazy var firstButton = EFParkingSpaceButton(
-        title: "Vaga 1",
-        background: .systemGreen,
-        action: { self.buttonAction(.firstBtn) }
-    )
-    private lazy var secondButton = EFParkingSpaceButton(
-        title: "Vaga 2",
-        background: .systemGreen,
-        action: { self.buttonAction(.secondBtn) }
-    )
-    private lazy var thirdButton = EFParkingSpaceButton(
-        title: "Vaga 3",
-        background: .systemGreen,
-        action: { self.buttonAction(.thirdBtn) }
-    )
-    
-    // Second row of buttons
-    private lazy var fourthButton = EFParkingSpaceButton(
-        title: "Vaga 4",
-        background: .systemGreen,
-        action: { self.buttonAction(.fourthBtn) }
-    )
-    private lazy var fifthButton = EFParkingSpaceButton(
-        title: "Vaga 5",
-        background: .systemGreen,
-        action: { self.buttonAction(.fifthBtn) }
-    )
-    private lazy var sixthButton = EFParkingSpaceButton(
-        title: "Vaga 6",
-        background: .systemGreen,
-        action: { self.buttonAction(.sixthBtn) }
-    )
-    
-    // Third row of buttons
-    private lazy var seventhButton = EFParkingSpaceButton(
-        title: "Vaga 7",
-        background: .systemGreen,
-        action: { self.buttonAction(.seventhBtn) }
-    )
-    private lazy var eighthButton = EFParkingSpaceButton(
-        title: "Vaga 8",
-        background: .systemGreen,
-        action: { self.buttonAction(.eighthBtn) }
-    )
-    private lazy var ninthButton = EFParkingSpaceButton(
-        title: "Vaga 9",
-        background: .systemGreen,
-        action: { self.buttonAction(.ninthBtn) }
-    )
-
-    func setFirstColor(_ first: UIColor) {
-        self.firstButton.backgroundColor = first
+    @objc private func didTapCreateParkingSpace() {
+        didTapCrateParkingSpace?()
     }
 
-    func setSecondColor(_ second: UIColor) {
-        self.secondButton.backgroundColor = second
+    func shouldDisplayEmptyView(_ show: Bool = false) {
+        self.emptyView.isHidden = !show
+        self.collectionView.isHidden = show
     }
-    
-    func setThirdColor(_ third: UIColor) {
-        self.thirdButton.backgroundColor = third
-    }
-    
-    func setFourthColor(_ fourth: UIColor) {
-        self.fourthButton.backgroundColor = fourth
-    }
-    
-    func setFifthColor(_ fifth: UIColor) {
-        self.fifthButton.backgroundColor = fifth
+}
+
+extension HomeViewV2: UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return parkingSpaces.count
     }
 
-    func setSixthColor(_ sixth: UIColor) {
-        self.sixthButton.backgroundColor = sixth
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeParkingSpaceViewCell.identifier, for: indexPath) as? HomeParkingSpaceViewCell else { return UICollectionViewCell() }
+        let item = parkingSpaces[indexPath.row]
+        cell.contentView.backgroundColor = setColor(item.statusSpace)
+        cell.bind(number: item.numSpace)
+        return cell
     }
     
-    func setSeventhColor(_ seventh: UIColor) {
-        self.seventhButton.backgroundColor = seventh
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = parkingSpaces[indexPath.row]
+        self.buttonAction(item)
     }
     
-    func setEighthColor(_ eighth: UIColor) {
-        self.eighthButton.backgroundColor = eighth
-    }
-    
-    func setNinthColor(_ ninth: UIColor) {
-        self.ninthButton.backgroundColor = ninth
+    private func setColor(_ status: ParkingSpaceStatus) -> UIColor {
+        switch status {
+        case .free: return .systemGreen
+        case .busy: return .systemYellow
+        case .inMaintenance: return .systemRed
+        }
     }
 
 }

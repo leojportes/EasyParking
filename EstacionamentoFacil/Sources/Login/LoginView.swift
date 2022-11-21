@@ -61,7 +61,7 @@ final class LoginView: UIView, ViewCodeContract {
     lazy var loginButton: EFButton = {
         let button = EFButton(
             title: "Login",
-            colorTitle: .darkGray,
+            colorTitle: .black,
             radius: 10,
             background: .lightGray
         )
@@ -71,7 +71,7 @@ final class LoginView: UIView, ViewCodeContract {
     }()
 
     private lazy var titleLabel = UILabel() .. {
-        $0.font = .boldSystemFont(ofSize: 30)
+        $0.font = .boldSystemFont(ofSize: 23)
         $0.text = "Estacionamento Fácil"
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -86,6 +86,11 @@ final class LoginView: UIView, ViewCodeContract {
         button.addTarget(self, action: #selector(createAccountAction), for: .touchUpInside)
         return button
     }()
+    
+    private lazy var parkingImageView = UIImageView() .. {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.image = UIImage(named: "img_parking")
+    }
 
     @objc
     func createAccountAction() {
@@ -94,6 +99,7 @@ final class LoginView: UIView, ViewCodeContract {
 
     // MARK: - Setup methods
     func setupHierarchy() {
+        addSubview(parkingImageView)
         addSubview(titleLabel)
         addSubview(emailTextField)
         addSubview(passwordTextField)
@@ -102,14 +108,20 @@ final class LoginView: UIView, ViewCodeContract {
     }
     
     func setupConstraints() {
+        
+        parkingImageView
+            .topAnchor(in: self, padding: 20)
+            .widthAnchor(100)
+            .heightAnchor(100)
+            .centerX(in: self)
+        
         titleLabel
-            .topAnchor(in: self, padding: 100)
-            .leftAnchor(in: self, attribute: .left, padding: 16)
-            .rightAnchor(in: self, attribute: .right, padding: 16)
+            .topAnchor(in: parkingImageView, attribute: .bottom, padding: 20)
+            .centerX(in: parkingImageView)
             .heightAnchor(25)
         
         emailTextField
-            .topAnchor(in: titleLabel, attribute: .bottom, padding: 60)
+            .topAnchor(in: titleLabel, attribute: .bottom, padding: 30)
             .leftAnchor(in: self, attribute: .left, padding: 16)
             .rightAnchor(in: self, attribute: .right, padding: 16)
             .heightAnchor(48)
@@ -133,6 +145,10 @@ final class LoginView: UIView, ViewCodeContract {
             .heightAnchor(48)
     }
 
+    func setupConfiguration() {
+        self.backgroundColor = UIColor(named: "separatorGray")
+    }
+    
     private func isEnabledButtonLogin(_ isEnabled: Bool) {
         if isEnabled {
             loginButton.backgroundColor = .systemGreen
@@ -156,8 +172,5 @@ final class LoginView: UIView, ViewCodeContract {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         didTapLogin(email, password)
-//        loginButton.loadingIndicator(show: true)
-//        delegateAction?.didTapLogin(emailTextField.text.orEmpty, passwordTextField.text.orEmpty)
     }
-
 }

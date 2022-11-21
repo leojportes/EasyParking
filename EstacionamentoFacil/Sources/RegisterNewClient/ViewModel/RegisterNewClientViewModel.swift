@@ -8,7 +8,7 @@
 import UIKit
 
 protocol RegisterNewClientViewModelProtocol {
-    func createNewClient(client: ClientModel, completion: @escaping (Bool) -> Void)
+    func createNewClient(client: RegisterNewClientModel, completion: @escaping (Bool) -> Void)
     func dismiss()
 }
 
@@ -25,7 +25,7 @@ class RegisterNewClientViewModel: RegisterNewClientViewModelProtocol {
         self.service = service
     }
 
-    func createNewClient(client: ClientModel, completion: @escaping (Bool) -> Void) {
+    func createNewClient(client: RegisterNewClientModel, completion: @escaping (Bool) -> Void) {
         service.createNewClient(client: client, completion: completion)
     }
 

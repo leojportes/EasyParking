@@ -12,14 +12,17 @@ final class ClientDetailsView: UIView, ViewCodeContract {
     private var didTapOccupyVacancyButton: Action?
     private var didTapCancelButton: Action?
     private var client: ClientModel
+    private var occupyVacancyTitleButton: String
 
     init(
         client: ClientModel,
         didTapOccupyVacancyButton: @escaping Action,
-        didTapCancelButton: @escaping Action
+        didTapCancelButton: @escaping Action,
+        occupyVacancyTitleButton: String
     ) {
         self.didTapOccupyVacancyButton = didTapOccupyVacancyButton
         self.didTapCancelButton = didTapCancelButton
+        self.occupyVacancyTitleButton = occupyVacancyTitleButton
         self.client = client
         super.init(frame: .zero)
         setupView()
@@ -33,7 +36,7 @@ final class ClientDetailsView: UIView, ViewCodeContract {
     private lazy var cardView = OccupyVacancyCardSectionsView(client: self.client)
 
     private lazy var occupyVacancyButton = EFButton(
-        title: "Ocupar vaga",
+        title: "Ocupar vaga nº \(occupyVacancyTitleButton)",
         colorTitle: .black,
         background: .systemGreen,
         alignmentText: .center,

@@ -6,19 +6,24 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol HomeViewModelProtocol: AnyObject {
     var input: HomeViewModelInputProtocol { get }
     var output: HomeViewModelOutputProtocol { get }
   
     // Routes
-    func didTapParkingSpace(_ buttonId: ButtonID, idParkingSpace: String)
+    func didTapParkingSpace(parkingSpace: ParkingSpace)
+    func navigateToRegisterNewParkingSpace(_ parkingSpaces: [ParkingSpace])
+    func signOut(resultSignOut: (Bool) -> Void)
+    func logout()
     func occupyParkingSpace(parkingSpace: ParkingSpace, id: String, completion: @escaping (Bool) -> Void)
 }
 
 // MARK: - Protocols
 protocol HomeViewModelOutputProtocol {
     var parkingSpaces: Bindable<[ParkingSpace]> { get }
+    var clients: Bindable<[ClientModel]> { get }
 }
 
 protocol HomeViewModelInputProtocol {
@@ -32,6 +37,7 @@ class HomeViewModel: HomeViewModelProtocol, HomeViewModelOutputProtocol {
     var input: HomeViewModelInputProtocol { self }
     var output: HomeViewModelOutputProtocol { self }
     var parkingSpaces: Bindable<[ParkingSpace]> = .init([])
+    var clients: Bindable<[ClientModel]> = .init([])
 
     // MARK: - Properties
     private var coordinator: HomeCoordinator?
@@ -42,6 +48,7 @@ class HomeViewModel: HomeViewModelProtocol, HomeViewModelOutputProtocol {
         self.service = service
     }
 
+    /// Fetch all parkingSpaces
     private func fetchParkingSpaces() {
         service.getParkingSpaces { result in
             DispatchQueue.main.async {
@@ -50,13 +57,40 @@ class HomeViewModel: HomeViewModelProtocol, HomeViewModelOutputProtocol {
         }
     }
     
+    /// Fetch all clients
+    private func fetchClients() {
+        service.getClientsList { result in
+            DispatchQueue.main.async {
+                self.clients.value = result
+            }
+        }
+    }
+
     func occupyParkingSpace(parkingSpace: ParkingSpace, id: String, completion: @escaping (Bool) -> Void) {
         service.occupyParkingSpace(parkingSpace: parkingSpace, id: id, completion: completion)
     }
   
     // MARK: - Routes
-    func didTapParkingSpace(_ buttonId: ButtonID, idParkingSpace: String) {
-        coordinator?.navigateToVehiclesList(buttonId, idParkingSpace: idParkingSpace)
+    func didTapParkingSpace(parkingSpace: ParkingSpace) {
+        coordinator?.navigateToVehiclesList(parkingSpace: parkingSpace)
+    }
+    
+    func navigateToRegisterNewParkingSpace(_ parkingSpaces: [ParkingSpace]) {
+        coordinator?.navigateToRegisterNewParkingSpace(parkingSpaces: parkingSpaces)
+    }
+    
+    func signOut(resultSignOut: (Bool) -> Void) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            resultSignOut(true)
+        } catch {
+            resultSignOut(false)
+        }
+    }
+    
+    func logout() {
+        coordinator?.logout()
     }
 
 }
@@ -64,5 +98,6 @@ class HomeViewModel: HomeViewModelProtocol, HomeViewModelOutputProtocol {
 extension HomeViewModel: HomeViewModelInputProtocol {
     func viewDidLoad() {
         fetchParkingSpaces()
+        fetchClients()
     }
 }

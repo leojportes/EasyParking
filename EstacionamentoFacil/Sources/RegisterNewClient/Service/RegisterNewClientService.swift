@@ -9,13 +9,13 @@ import Foundation
 //import FirebaseAuth
 
 protocol RegisterNewClientServiceProtocol {
-    func createNewClient(client: ClientModel, completion: @escaping (Bool) -> Void)
+    func createNewClient(client: RegisterNewClientModel, completion: @escaping (Bool) -> Void)
 }
 
 class RegisterNewClientService: RegisterNewClientServiceProtocol {
     private let baseUrl = ClientAPI.endpoint
     
-    func createNewClient(client: ClientModel, completion: @escaping (Bool) -> Void) {
+    func createNewClient(client: RegisterNewClientModel, completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: "\(ClientAPI.endpoint)/client") else {
             print("Error: cannot create URL")
             return

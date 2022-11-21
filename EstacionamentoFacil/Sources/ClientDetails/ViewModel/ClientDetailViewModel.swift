@@ -9,6 +9,7 @@ import UIKit
 
 protocol ClientDetailsViewModelProtocol {
     func occupyParkingSpace(parkingSpace: ParkingSpace, id: String, completion: @escaping (Bool) -> Void)
+    func deleteClient(id: String, completion: @escaping (Bool) -> Void)
     func popToHome()
     func dismiss()
 }
@@ -24,6 +25,11 @@ class ClientDetailsViewModel: ClientDetailsViewModelProtocol {
     init(service: ClientDetailsServiceProtocol = ClientDetailsService(), coordinator: ClientDetailsCoordinator?) {
         self.coordinator = coordinator
         self.service = service
+    }
+    
+    /// Delete Client
+    func deleteClient(id: String, completion: @escaping (Bool) -> Void) {
+        service.deleteClient(id: id, completion: completion)
     }
 
     func occupyParkingSpace(parkingSpace: ParkingSpace, id: String, completion: @escaping (Bool) -> Void) {
