@@ -24,9 +24,9 @@
 https://user-images.githubusercontent.com/65302846/203102424-4ea5199c-06d6-45e1-95c3-3324dda4a520.mp4
  
 ## Construção
-Aplicação foi desenvolvida em [Swift](https://www.apple.com/br/swift/) por meio da IDE Xcode.
-O Banco de dados utilizado está sendo o MongoDB Atlas
-API em Node.js hospedada na AWS.
+- Aplicação foi desenvolvida em [Swift](https://www.apple.com/br/swift/) por meio da IDE Xcode.
+- O Banco de dados utilizado está sendo o MongoDB Atlas
+- API em Node.js hospedada na AWS.
 
 ### Arquitetura MVVM-C
  
