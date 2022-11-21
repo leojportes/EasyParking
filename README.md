@@ -21,6 +21,8 @@
 ## Descrição do Projeto
 <b>Aplicativo para gerenciar estacionamento, podendo cadastrar vagas, clientes com info do seu veículo, monitorar e gerenciar o status de cada vaga adicionada.<br>
 
+https://user-images.githubusercontent.com/65302846/203102424-4ea5199c-06d6-45e1-95c3-3324dda4a520.mp4
+ 
 ## Construção
 Aplicação foi desenvolvida em [Swift](https://www.apple.com/br/swift/) por meio da IDE Xcode.
 
